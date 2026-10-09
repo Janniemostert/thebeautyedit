@@ -18,7 +18,10 @@ export default async function Home() {
   return (
     <>
       <section className={classes.hero}>
-        <div className={classes.heroGlow} aria-hidden="true" />
+        {/* Three glow layers slowly cross-fade: pink → purple → gold. Remove the last two to revert. */}
+        <div className={`${classes.heroGlow} ${classes.glowPink}`} aria-hidden="true" />
+        <div className={`${classes.heroGlow} ${classes.glowPurple}`} aria-hidden="true" />
+        <div className={`${classes.heroGlow} ${classes.glowGold}`} aria-hidden="true" />
         <h1 className={classes.heroLogo}>
           <Image src={LOGO_SRC} alt={site.fullName} width={260} height={260} priority />
         </h1>

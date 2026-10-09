@@ -12,17 +12,62 @@
   }
 }
 
+/* ── Hero glow ─────────────────────────────────────
+   Three colour layers sit behind the logo and slowly cross-fade in a 24 s loop,
+   each drifting a little so the light appears to move. */
 .heroGlow {
   position: absolute;
   top: -40%;
   left: 50%;
-  transform: translateX(-50%);
   width: 70vw;
   max-width: 900px;
   aspect-ratio: 1;
-  background: radial-gradient(circle, rgba(199, 103, 138, 0.35) 0%, rgba(158, 74, 105, 0.15) 40%, transparent 70%);
   filter: blur(40px);
   pointer-events: none;
+  transform: translateX(-50%);
+  animation-duration: 24s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.glowPink {
+  background: radial-gradient(circle, rgba(199, 103, 138, 0.40) 0%, rgba(158, 74, 105, 0.16) 40%, transparent 70%);
+  animation-name: glowPink;
+}
+
+.glowPurple {
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.40) 0%, rgba(99, 60, 190, 0.16) 40%, transparent 70%);
+  animation-name: glowPurple;
+}
+
+.glowGold {
+  background: radial-gradient(circle, rgba(245, 190, 90, 0.34) 0%, rgba(214, 150, 50, 0.14) 40%, transparent 70%);
+  animation-name: glowGold;
+}
+
+/* Each layer peaks a third of the loop apart. */
+@keyframes glowPink {
+  0%, 100% { opacity: 1;   transform: translateX(-50%) translate(0, 0) scale(1); }
+  33%      { opacity: 0;   transform: translateX(-50%) translate(-6%, 3%) scale(1.05); }
+  66%      { opacity: 0;   transform: translateX(-50%) translate(5%, -2%) scale(0.97); }
+}
+
+@keyframes glowPurple {
+  0%, 100% { opacity: 0;   transform: translateX(-50%) translate(6%, -3%) scale(0.96); }
+  33%      { opacity: 1;   transform: translateX(-50%) translate(0, 0) scale(1); }
+  66%      { opacity: 0;   transform: translateX(-50%) translate(-5%, 3%) scale(1.05); }
+}
+
+@keyframes glowGold {
+  0%, 100% { opacity: 0;   transform: translateX(-50%) translate(-5%, 3%) scale(1.04); }
+  33%      { opacity: 0;   transform: translateX(-50%) translate(6%, -2%) scale(0.97); }
+  66%      { opacity: 1;   transform: translateX(-50%) translate(0, 0) scale(1); }
+}
+
+/* Respect users who prefer less motion: show the still pink glow only. */
+@media (prefers-reduced-motion: reduce) {
+  .heroGlow { animation: none; }
+  .glowPurple, .glowGold { display: none; }
 }
 
 /* The logo is the page heading (h1) since it carries the site name. */
