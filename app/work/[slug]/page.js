@@ -8,6 +8,7 @@ import Link from 'next/link';
 import Gallery from '@/app/components/work/gallery';
 import VideoEmbed from '@/app/components/work/video-embed';
 import Comments from '@/app/components/comments/Comments';
+import { cld } from '@/lib/cloudinary';
 import classes from './work.module.css';
 
 export const dynamic = 'force-dynamic';
@@ -118,7 +119,7 @@ export default async function WorkPage({ params }) {
                     <figure className={classes.cover}>
                         {/* Plain <img>: shows the whole image at its natural size, never upscaled. */}
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={work.coverImage} alt={work.title} className={classes.coverImg} />
+                        <img src={cld(work.coverImage, 'f_auto,q_auto,w_1600,c_limit')} alt={work.title} className={classes.coverImg} />
                     </figure>
                 )}
 

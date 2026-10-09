@@ -103,6 +103,19 @@ Video files bypass the server: the browser asks the server for a signature, then
 
 ---
 
+## Progressive Web App & Mobile Performance
+
+The site is installable on phone home screens (Android "Install app" / iPhone Share → "Add to Home Screen"). Installing only works over HTTPS, so test it on the Netlify URL, not localhost.
+
+- `app/manifest.js` — web app manifest (name, colours, icons), served at `/manifest.webmanifest`.
+- `public/icons/` — home-screen icons generated from `public/logo.png` by `node scripts/make-icons.js`. Re-run it whenever the logo changes (it also rewrites the favicon `app/icon.png`).
+- `public/sw.js` — service worker: pages are network-first with an `/offline` fallback; build assets, icons and Cloudinary media are cache-first; auth, admin and API are never cached. Bump `VERSION` inside it to clear old caches after a big change. Registered by `app/components/pwa-register.js` in production only.
+- Fonts are self-hosted through `next/font` (no Google Fonts request at runtime).
+- Cover images on the detail page use Cloudinary `f_auto,q_auto` (modern formats, automatic compression) via `lib/cloudinary.js`.
+- Replacing the logo: overwrite `public/logo.png`, bump `LOGO_SRC` in `lib/site.js`, run `node scripts/make-icons.js`.
+
+---
+
 ## Key File Structure
 
 ```

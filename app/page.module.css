@@ -22,9 +22,10 @@
   width: 70vw;
   max-width: 900px;
   aspect-ratio: 1;
-  filter: blur(40px);
+  filter: blur(28px);
   pointer-events: none;
   transform: translateX(-50%);
+  will-change: opacity, transform;
   animation-duration: 24s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
@@ -62,6 +63,10 @@
   0%, 100% { opacity: 0;   transform: translateX(-50%) translate(-5%, 3%) scale(1.04); }
   33%      { opacity: 0;   transform: translateX(-50%) translate(6%, -2%) scale(0.97); }
   66%      { opacity: 1;   transform: translateX(-50%) translate(0, 0) scale(1); }
+}
+
+@media (min-width: 768px) {
+  .heroGlow { filter: blur(40px); }
 }
 
 /* Respect users who prefer less motion: show the still pink glow only. */

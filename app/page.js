@@ -28,7 +28,7 @@ export default async function Home() {
         <p className={classes.eyebrow}>Beauty creator</p>
         <p className={classes.tagline}>{site.tagline}</p>
         <div className={classes.cta}>
-          <Link href="/work" className={classes.primaryBtn}>View the work</Link>
+          <Link href="/work" className={classes.primaryBtn}>View my work</Link>
           <Link href="/videos" className={classes.ghostBtn}>Watch videos</Link>
         </div>
       </section>
