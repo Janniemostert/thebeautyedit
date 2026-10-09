@@ -2,6 +2,12 @@ import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import { connectDB } from '@/lib/db';
 import User from '@/lib/models/User';
+import { SITE_URL } from '@/lib/site';
+
+// In production the callback must always come back to the live site.
+if (process.env.NODE_ENV === 'production') {
+    process.env.NEXTAUTH_URL = SITE_URL;
+}
 
 export const authOptions = {
     providers: [
