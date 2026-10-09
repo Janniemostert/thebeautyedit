@@ -17,15 +17,7 @@ export default function Header() {
         <div className={classes.headerWrap}>
             <header className={classes.header}>
                 <Link href="/" className={classes.logo} aria-label={`${site.fullName} home`}>
-                    <span className={classes.logoTile}>
-                        <Image src="/logo.png" alt="" width={48} height={48} priority />
-                    </span>
-                    <span className={classes.logoWords}>
-                        <span className={classes.logoText}>
-                            The <span className={classes.logoMark}>Beauty</span> Edit
-                        </span>
-                        <span className={classes.logoBy}>{site.by}</span>
-                    </span>
+                    <Image src="/logo.png" alt={site.fullName} width={220} height={220} priority className={classes.logoImg} />
                 </Link>
 
                 <nav className={classes.nav} aria-label="Main">

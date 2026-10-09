@@ -1,10 +1,10 @@
+/* Solid background on purpose: a blur/filter here would turn the header into the
+   containing block for the fixed mobile drawer and break the full-screen menu. */
 .headerWrap {
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgba(11, 11, 13, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: var(--bg);
   border-bottom: 1px solid var(--border);
 }
 
@@ -15,88 +15,43 @@
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  padding: 0.85rem 1rem;
+  padding: 0.6rem 1rem;
+  min-height: 64px;
 }
 
 @media (min-width: 768px) {
   .header {
-    padding: 0.9rem 2rem;
+    padding: 0.6rem 2rem;
+    min-height: 72px;
   }
 }
 
 /* ── Logo ─────────────────────────────────────────── */
+/* Oversized on purpose: it hangs below the bar, overlapping the page. */
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.7rem;
   text-decoration: none;
-  font-family: var(--font-heading);
-  letter-spacing: -0.02em;
-  color: var(--text);
-  line-height: 1;
-}
-
-/* The logo artwork is black + pink on transparent, so it sits on a white tile. */
-.logoTile {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  padding: 4px;
-  border-radius: 10px;
-  background: #fff;
+  line-height: 0;
   flex-shrink: 0;
+  margin: -6px 0 -40px;
 }
 
-.logoTile img {
-  width: 100%;
-  height: 100%;
+.logoImg {
+  width: auto;
+  height: 96px;
   object-fit: contain;
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.6));
 }
 
 @media (min-width: 768px) {
-  .logoTile {
-    width: 50px;
-    height: 50px;
+  .logo {
+    margin: -8px 0 -56px;
   }
-}
 
-.logoWords {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.15rem;
-}
-
-.logoText {
-  color: var(--text);
-  font-weight: 600;
-  font-size: 1.25rem;
-  white-space: nowrap;
-}
-
-@media (min-width: 768px) {
-  .logoText {
-    font-size: 1.4rem;
+  .logoImg {
+    height: 128px;
   }
-}
-
-.logoMark {
-  font-weight: 700;
-  background: var(--gradient);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.logoBy {
-  font-family: var(--font-body);
-  font-size: 0.65rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted);
-  padding-left: 0.1rem;
 }
 
 /* ── Nav ──────────────────────────────────────────── */

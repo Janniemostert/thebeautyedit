@@ -20,7 +20,7 @@ export default async function Home() {
       <section className={classes.hero}>
         <div className={classes.heroGlow} aria-hidden="true" />
         <span className={classes.heroLogo}>
-          <Image src="/logo.png" alt="" width={160} height={160} priority />
+          <Image src="/logo.png" alt="" width={260} height={260} priority />
         </span>
         <p className={classes.eyebrow}>Beauty creator</p>
         <h1>

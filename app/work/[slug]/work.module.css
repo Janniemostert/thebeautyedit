@@ -1,6 +1,6 @@
 .main {
     max-width: 960px;
-    margin: 2.5rem auto;
+    margin: 4.5rem auto 2.5rem; /* extra top room for the oversized header logo */
     padding: 0 1rem;
 }
 

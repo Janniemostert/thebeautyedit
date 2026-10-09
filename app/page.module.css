@@ -27,23 +27,17 @@
 
 .heroLogo {
   position: relative;
-  display: inline-grid;
-  place-items: center;
-  width: 120px;
-  height: 120px;
-  padding: 10px;
-  border-radius: 24px;
-  background: #fff;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
-  margin-bottom: 1.5rem;
+  display: inline-block;
+  width: 180px;
+  height: 180px;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 16px 40px rgba(0, 0, 0, 0.55));
 }
 
 @media (min-width: 768px) {
   .heroLogo {
-    width: 160px;
-    height: 160px;
-    padding: 14px;
-    border-radius: 30px;
+    width: 260px;
+    height: 260px;
   }
 }
 

@@ -1,4 +1,5 @@
 .burger {
+    position: relative; /* needed so z-index keeps it above the open drawer */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -37,9 +38,7 @@
 .drawer {
     position: fixed;
     inset: 0;
-    background: rgba(11, 11, 13, 0.96);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: #000;
     z-index: 50;
     display: flex;
     flex-direction: column;

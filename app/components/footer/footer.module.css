@@ -21,13 +21,9 @@
 }
 
 .logoTile {
-    display: inline-grid;
-    place-items: center;
-    width: 64px;
-    height: 64px;
-    padding: 6px;
-    border-radius: 14px;
-    background: #fff;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
     margin-bottom: 0.8rem;
 }
 
