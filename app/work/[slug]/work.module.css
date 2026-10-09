@@ -41,16 +41,36 @@
 }
 
 .cover {
-    position: relative;
-    aspect-ratio: 16 / 10;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 0 2rem;
+    padding: 0;
     border-radius: var(--radius);
     overflow: hidden;
-    margin-bottom: 2rem;
     border: 1px solid var(--border);
     background: var(--surface-2);
 }
 
+/* Whole image, natural size (never enlarged), centred, capped to the viewport height. */
+.coverImg {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+}
+
+/* Blurred teaser for members-only pieces (uses next/image fill). */
+.coverBlur {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    max-height: 70vh;
+}
+
 .coverBlur img {
+    object-position: center top;
     filter: blur(14px) brightness(0.6);
     transform: scale(1.1);
 }

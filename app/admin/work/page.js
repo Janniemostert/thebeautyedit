@@ -50,7 +50,7 @@ export default async function AdminWorkPage() {
                                 <tr key={id}>
                                     <td>
                                         <div className={classes.thumb}>
-                                            {thumb && <Image src={thumb} alt="" fill sizes="64px" style={{ objectFit: 'cover' }} />}
+                                            {thumb && <Image src={thumb} alt="" fill sizes="64px" style={{ objectFit: 'cover', objectPosition: 'center top' }} />}
                                         </div>
                                     </td>
                                     <td>

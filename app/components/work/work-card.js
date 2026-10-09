@@ -15,7 +15,7 @@ export default function WorkCard({ work, locked = false }) {
                         alt={work.title}
                         fill
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        style={{ objectFit: 'cover' }}
+                        style={{ objectFit: 'cover', objectPosition: 'center top' }}
                     />
                 ) : (
                     <div className={classes.placeholder} aria-hidden="true">

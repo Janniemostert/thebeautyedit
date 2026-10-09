@@ -44,7 +44,7 @@ export default function Gallery({ images, title }) {
                             alt={`${title} — image ${i + 1}`}
                             fill
                             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                            style={{ objectFit: 'cover' }}
+                            style={{ objectFit: 'cover', objectPosition: 'center top' }}
                         />
                     </button>
                 ))}

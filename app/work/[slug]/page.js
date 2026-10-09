@@ -52,7 +52,7 @@ export default async function WorkPage({ params }) {
                     </header>
                     {work.coverImage && (
                         <div className={`${classes.cover} ${classes.coverBlur}`}>
-                            <Image src={work.coverImage} alt={work.title} fill sizes="100vw" style={{ objectFit: 'cover' }} />
+                            <Image src={work.coverImage} alt={work.title} fill sizes="100vw" style={{ objectFit: 'cover', objectPosition: 'center top' }} />
                         </div>
                     )}
                     <div className={classes.gate}>
@@ -115,9 +115,11 @@ export default async function WorkPage({ params }) {
                 )}
 
                 {showCover && (
-                    <div className={classes.cover}>
-                        <Image src={work.coverImage} alt={work.title} fill sizes="100vw" priority style={{ objectFit: 'cover' }} />
-                    </div>
+                    <figure className={classes.cover}>
+                        {/* Plain <img>: shows the whole image at its natural size, never upscaled. */}
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={work.coverImage} alt={work.title} className={classes.coverImg} />
+                    </figure>
                 )}
 
                 {work.description && (
