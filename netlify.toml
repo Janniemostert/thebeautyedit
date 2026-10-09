@@ -2,5 +2,10 @@
   command = "npm run build"
   publish = ".next"
 
+[build.environment]
+  # NEXTAUTH_URL is the public site address, not a secret. It naturally appears in
+  # the build output, so exclude it from Netlify's secrets scanner.
+  SECRETS_SCAN_OMIT_KEYS = "NEXTAUTH_URL"
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
