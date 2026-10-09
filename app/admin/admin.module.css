@@ -100,8 +100,8 @@
 .active    { background: rgba(52, 211, 153, 0.12);  color: var(--success); border: 1px solid rgba(52, 211, 153, 0.4); }
 .suspended { background: rgba(248, 113, 113, 0.12); color: var(--danger);  border: 1px solid rgba(248, 113, 113, 0.4); }
 .cancelled { background: var(--surface-2);          color: var(--muted);   border: 1px solid var(--border); }
-.photo     { background: rgba(139, 92, 246, 0.18);  color: #c4b5fd;        border: 1px solid rgba(139, 92, 246, 0.4); }
-.video     { background: rgba(236, 72, 153, 0.18);  color: #f9a8d4;        border: 1px solid rgba(236, 72, 153, 0.4); }
+.photo     { background: rgba(199, 103, 138, 0.18);  color: #eeb3c7;        border: 1px solid rgba(199, 103, 138, 0.4); }
+.video     { background: rgba(158, 74, 105, 0.18);  color: #f4cad8;        border: 1px solid rgba(158, 74, 105, 0.4); }
 
 .green  { color: var(--success); font-weight: 600; }
 .yellow { color: var(--warning); font-weight: 600; }

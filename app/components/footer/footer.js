@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { site } from '@/lib/site';
 import classes from './footer.module.css';
 
@@ -7,6 +8,9 @@ export default function Footer() {
         <footer className={classes.footer}>
             <div className={classes.inner}>
                 <div className={classes.brandCol}>
+                    <span className={classes.logoTile}>
+                        <Image src="/logo.png" alt={site.fullName} width={64} height={64} />
+                    </span>
                     <p className={classes.brand}>
                         The <span className={classes.brandMark}>Beauty</span> Edit
                         <span className={classes.brandBy}>{site.by}</span>

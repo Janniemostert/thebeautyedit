@@ -1,5 +1,6 @@
 'use client';
 import { signIn } from 'next-auth/react';
+import Image from 'next/image';
 import { site } from '@/lib/site';
 import classes from './signin.module.css';
 
@@ -7,6 +8,9 @@ export default function SignInPage() {
     return (
         <main className={classes.main}>
             <div className={classes.card}>
+                <span className={classes.logoTile}>
+                    <Image src="/logo.png" alt={site.fullName} width={72} height={72} />
+                </span>
                 <p className={classes.brand}>The <span>Beauty</span> Edit <small>{site.by}</small></p>
                 <h1>Sign in</h1>
                 <p>Sign in with Google to comment on looks and request access to members-only content.</p>

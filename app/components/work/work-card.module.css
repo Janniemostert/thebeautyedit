@@ -59,8 +59,8 @@
     backdrop-filter: blur(6px);
 }
 
-.photo  { background: rgba(139, 92, 246, 0.85); color: #fff; }
-.video  { background: rgba(236, 72, 153, 0.85); color: #fff; }
+.photo  { background: rgba(199, 103, 138, 0.85); color: #fff; }
+.video  { background: rgba(158, 74, 105, 0.85); color: #fff; }
 .locked { background: rgba(0, 0, 0, 0.6); color: var(--warning); border: 1px solid rgba(251, 191, 36, 0.4); }
 
 .playIcon {

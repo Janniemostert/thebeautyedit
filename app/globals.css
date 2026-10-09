@@ -7,9 +7,10 @@
   --border:     #2a2a33;
   --text:       #f3f3f5;
   --muted:      #9a9aa6;
-  --accent:     #8b5cf6;
-  --accent-2:   #ec4899;
-  --gradient:   linear-gradient(90deg, #8b5cf6, #ec4899);
+  /* Brand pink sampled from the logo, with a deeper rose for the gradient end. */
+  --accent:     #c7678a;
+  --accent-2:   #9e4a69;
+  --gradient:   linear-gradient(90deg, #d4789a, #a24f6f);
   --success:    #34d399;
   --warning:    #fbbf24;
   --danger:     #f87171;

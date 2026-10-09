@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import WorkCard from './components/work/work-card';
 import { getPublishedWork, getViewer } from '@/lib/work';
 import { site } from '@/lib/site';
@@ -18,6 +19,9 @@ export default async function Home() {
     <>
       <section className={classes.hero}>
         <div className={classes.heroGlow} aria-hidden="true" />
+        <span className={classes.heroLogo}>
+          <Image src="/logo.png" alt="" width={160} height={160} priority />
+        </span>
         <p className={classes.eyebrow}>Beauty creator</p>
         <h1>
           The <span className={classes.heroMark}>Beauty</span> Edit
