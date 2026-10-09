@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useFormState, useFormStatus } from 'react-dom';
 import { createWork, updateWork, deleteWork } from '@/lib/workActions';
+import VideoUploader from './VideoUploader';
 import classes from './work-form.module.css';
 
 const initialState = { message: null };
@@ -70,19 +71,22 @@ export default function WorkForm({ work = null }) {
                     </label>
                 </fieldset>
 
+                {type === 'video' && <VideoUploader initialUrl={work?.videoFile || null} />}
+
                 <div className={classes.field}>
-                    <label htmlFor="videoLink">
-                        Video link {type === 'video' ? '*' : '(optional)'}
-                    </label>
+                    <label htmlFor="videoLink">Video link (optional)</label>
                     <input
                         id="videoLink"
                         type="url"
                         name="videoLink"
                         defaultValue={work?.videoLink || ''}
-                        placeholder="https://youtube.com/watch?v=… or https://vimeo.com/…"
-                        required={type === 'video'}
+                        placeholder="https://youtube.com/watch?v=…, https://vimeo.com/…, or a WhatsApp / Instagram link"
                     />
-                    <span className={classes.hint}>YouTube and Vimeo links are embedded as a player. Other links show as a plain link.</span>
+                    <span className={classes.hint}>
+                        YouTube and Vimeo links play on the page. WhatsApp, Instagram and TikTok links can&apos;t be embedded,
+                        so they show as a &ldquo;Watch on …&rdquo; button next to the uploaded video.
+                        {type === 'video' && ' A video piece needs either an uploaded file or a link.'}
+                    </span>
                 </div>
 
                 <div className={classes.field}>
@@ -97,7 +101,7 @@ export default function WorkForm({ work = null }) {
                 </div>
 
                 <div className={classes.field}>
-                    <label htmlFor="coverImage">{isEdit ? 'Replace cover image' : 'Cover image'} {type === 'photo' ? '' : '(optional, otherwise the video thumbnail is used)'}</label>
+                    <label htmlFor="coverImage">{isEdit ? 'Replace cover image' : 'Cover image'} {type === 'photo' ? '' : '(optional, otherwise a frame from the video is used)'}</label>
                     {isEdit && work.coverImage && (
                         <div className={classes.currentRow}>
                             {/* eslint-disable-next-line @next/next/no-img-element */}

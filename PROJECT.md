@@ -75,7 +75,8 @@ Stored in the `works` collection (`lib/models/Work.js`):
 | `type`             | `photo` or `video`                                           |
 | `coverImage`       | Cloudinary URL. Falls back to first gallery image            |
 | `images[]`         | Gallery images (Cloudinary URLs)                             |
-| `videoLink`        | Required for `video` type. YouTube / Vimeo are embedded      |
+| `videoFile`        | Cloudinary video URL, uploaded straight from the browser (signed upload, folder `beauty-edit/video`), played in a native player |
+| `videoLink`        | YouTube / Vimeo are embedded. WhatsApp / Instagram / TikTok links show as a "Watch on …" button. A video piece needs a file or a link |
 | `description`      | Plain text (sanitised with `xss`, line breaks preserved)     |
 | `tags[]`           | Comma separated in the form                                  |
 | `featured`         | Shown first on the home page                                 |
@@ -97,6 +98,8 @@ Stored in the `works` collection (`lib/models/Work.js`):
 ## Upload Limits
 
 Images are sent through a Next.js server action. The body size limit is set to 10 MB in `next.config.js`, but Netlify functions cap request bodies at about 6 MB. Keep each save under roughly 4 MB of images in total; add more images in a second edit if needed.
+
+Video files bypass the server: the browser asks the server for a signature, then uploads directly to Cloudinary (up to 100 MB on the free plan). WhatsApp videos cannot be embedded from a channel link; save the video from WhatsApp and upload the file instead.
 
 ---
 

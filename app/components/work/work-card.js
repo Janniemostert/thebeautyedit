@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { getVideoThumbnail } from '@/lib/video';
+import { getWorkThumbnail } from '@/lib/video';
 import classes from './work-card.module.css';
 
 export default function WorkCard({ work, locked = false }) {
-    const thumb = work.coverImage || (work.type === 'video' ? getVideoThumbnail(work.videoLink) : null);
+    const thumb = getWorkThumbnail(work);
 
     return (
         <Link href={`/work/${work.slug}`} className={classes.card}>

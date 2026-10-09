@@ -110,7 +110,7 @@ export default async function WorkPage({ params }) {
 
                 {work.type === 'video' && (
                     <div className={classes.block}>
-                        <VideoEmbed link={work.videoLink} title={work.title} />
+                        <VideoEmbed file={work.videoFile} link={work.videoLink} poster={work.coverImage} title={work.title} />
                     </div>
                 )}
 
@@ -124,10 +124,10 @@ export default async function WorkPage({ params }) {
                     <div className={classes.body} dangerouslySetInnerHTML={{ __html: work.description.replace(/\n/g, '<br/>') }} />
                 )}
 
-                {work.type !== 'video' && work.videoLink && (
+                {work.type !== 'video' && (work.videoLink || work.videoFile) && (
                     <div className={classes.block}>
                         <h2>Video</h2>
-                        <VideoEmbed link={work.videoLink} title={work.title} />
+                        <VideoEmbed file={work.videoFile} link={work.videoLink} title={work.title} />
                     </div>
                 )}
 

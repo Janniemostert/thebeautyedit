@@ -142,6 +142,43 @@
     width: 120px;
 }
 
+.videoPreviewWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    align-items: flex-start;
+    margin-bottom: 0.4rem;
+}
+
+.videoPreview {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: #000;
+}
+
+.progress {
+    position: relative;
+    height: 8px;
+    background: var(--surface-2);
+    border-radius: 999px;
+    overflow: visible;
+    margin-top: 0.4rem;
+}
+
+.progressBar {
+    height: 100%;
+    border-radius: 999px;
+    background: var(--gradient);
+    transition: width 0.2s;
+}
+
+.progress .hint {
+    display: block;
+    margin-top: 0.4rem;
+}
+
 .removable {
     display: flex;
     flex-direction: column;

@@ -7,7 +7,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import classes from '../admin.module.css';
 import { DeleteWorkButton, ToggleStatusButton, ToggleFeaturedButton } from './WorkButtons';
-import { getVideoThumbnail } from '@/lib/video';
+import { getWorkThumbnail } from '@/lib/video';
 
 export const dynamic = 'force-dynamic';
 
@@ -45,7 +45,7 @@ export default async function AdminWorkPage() {
                         )}
                         {works.map((w) => {
                             const id = w._id.toString();
-                            const thumb = w.coverImage || (w.type === 'video' ? getVideoThumbnail(w.videoLink) : null);
+                            const thumb = getWorkThumbnail(w);
                             return (
                                 <tr key={id}>
                                     <td>
