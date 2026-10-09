@@ -1,0 +1,73 @@
+.userArea {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.avatar {
+    border-radius: 50%;
+    border: 2px solid var(--border);
+}
+
+.name {
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.adminLink {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    background: var(--gradient);
+    transition: opacity 0.2s;
+}
+
+.adminLink:hover {
+    opacity: 0.85;
+}
+
+.signInBtn,
+.signOutBtn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: inherit;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.signInBtn {
+    background: var(--gradient);
+    border-color: transparent;
+    color: #fff;
+}
+
+.signInBtn:hover {
+    opacity: 0.9;
+}
+
+.signOutBtn:hover {
+    border-color: var(--muted);
+    background: var(--surface-2);
+}
+
+.pendingBadge {
+    text-decoration: none;
+    background: rgba(251, 191, 36, 0.12);
+    border: 1px solid rgba(251, 191, 36, 0.5);
+    color: var(--warning);
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}

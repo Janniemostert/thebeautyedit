@@ -1,0 +1,89 @@
+.headerWrap {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(11, 11, 13, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.85rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .header {
+    padding: 0.9rem 2rem;
+  }
+}
+
+/* ── Logo ─────────────────────────────────────────── */
+.logo {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.logoMark {
+  background: var(--gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logoText {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* ── Nav ──────────────────────────────────────────── */
+.nav {
+  display: none;
+}
+
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0.25rem;
+}
+
+.authBar {
+  display: none;
+}
+
+.mobileMenuWrap {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .nav {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .authBar {
+    display: flex;
+    align-items: center;
+  }
+
+  .mobileMenuWrap {
+    display: none;
+  }
+}

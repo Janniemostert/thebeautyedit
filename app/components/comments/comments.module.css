@@ -1,0 +1,183 @@
+.section {
+    margin-top: 3rem;
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+}
+
+.section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 2rem;
+}
+
+.form textarea,
+.editForm textarea {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    padding: 0.65rem 0.85rem;
+    font-size: 0.9rem;
+    font-family: inherit;
+    resize: vertical;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form textarea:focus,
+.editForm textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.formActions {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.submitBtn {
+    background: var(--gradient);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.submitBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.cancelBtn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.85rem;
+}
+
+.comment {
+    border-left: 2px solid var(--border);
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.commentHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.avatar {
+    border-radius: 50%;
+}
+
+.author {
+    color: var(--text);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.date {
+    color: var(--muted);
+    font-size: 0.8rem;
+    margin-left: auto;
+}
+
+.body {
+    color: #d6d6dc;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    white-space: pre-wrap;
+}
+
+.replyBtn,
+.editBtn,
+.deleteBtn {
+    background: transparent;
+    border: none;
+    font-size: 0.8rem;
+    cursor: pointer;
+    padding: 0;
+    font-family: inherit;
+    color: var(--muted);
+}
+
+.replyBtn:hover,
+.editBtn:hover {
+    color: var(--text);
+}
+
+.deleteBtn {
+    color: var(--danger);
+}
+
+.list {
+    margin-top: 1rem;
+}
+
+.loginNote {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.loginNote a {
+    color: var(--text);
+}
+
+.error {
+    color: var(--danger);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.empty {
+    color: var(--muted);
+    font-style: italic;
+}
+
+.inactiveComment {
+    opacity: 0.5;
+}
+
+.inactiveTag {
+    font-size: 0.7rem;
+    color: var(--muted);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.1rem 0.4rem;
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+.actionBtns {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.editForm {
+    margin-top: 0.5rem;
+}
+
+.editForm textarea {
+    margin-bottom: 0.4rem;
+}

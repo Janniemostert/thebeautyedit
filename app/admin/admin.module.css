@@ -1,0 +1,203 @@
+.main {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.main h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.toolbar h1 {
+    margin: 0;
+}
+
+.sectionTitle {
+    color: var(--muted);
+    font-size: 0.8rem;
+    margin: 2rem 0 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.tableWrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.table th,
+.table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: middle;
+}
+
+.table tr:last-child td {
+    border-bottom: none;
+}
+
+.table th {
+    color: var(--muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    background: var(--surface-2);
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.emptyRow {
+    color: var(--muted);
+    font-style: italic;
+}
+
+.thumb {
+    position: relative;
+    width: 64px;
+    height: 48px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+
+.pending   { background: rgba(251, 191, 36, 0.12);  color: var(--warning); border: 1px solid rgba(251, 191, 36, 0.4); }
+.active    { background: rgba(52, 211, 153, 0.12);  color: var(--success); border: 1px solid rgba(52, 211, 153, 0.4); }
+.suspended { background: rgba(248, 113, 113, 0.12); color: var(--danger);  border: 1px solid rgba(248, 113, 113, 0.4); }
+.cancelled { background: var(--surface-2);          color: var(--muted);   border: 1px solid var(--border); }
+.photo     { background: rgba(139, 92, 246, 0.18);  color: #c4b5fd;        border: 1px solid rgba(139, 92, 246, 0.4); }
+.video     { background: rgba(236, 72, 153, 0.18);  color: #f9a8d4;        border: 1px solid rgba(236, 72, 153, 0.4); }
+
+.green  { color: var(--success); font-weight: 600; }
+.yellow { color: var(--warning); font-weight: 600; }
+.red    { color: var(--danger);  font-weight: 600; }
+
+.actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.actions form {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+}
+
+.actions select {
+    background: var(--surface-2);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.3rem 0.4rem;
+    font-size: 0.8rem;
+    font-family: inherit;
+}
+
+.btn,
+.approveBtn,
+.suspendBtn,
+.ghostBtn {
+    display: inline-block;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: inherit;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: opacity 0.2s, background 0.2s;
+}
+
+.btn {
+    background: var(--gradient);
+    color: #fff;
+    border: none;
+}
+
+.btn:hover { opacity: 0.9; }
+
+.approveBtn {
+    background: rgba(52, 211, 153, 0.12);
+    color: var(--success);
+    border: 1px solid rgba(52, 211, 153, 0.5);
+}
+
+.approveBtn:hover { background: rgba(52, 211, 153, 0.22); }
+
+.suspendBtn {
+    background: rgba(248, 113, 113, 0.12);
+    color: var(--danger);
+    border: 1px solid rgba(248, 113, 113, 0.5);
+}
+
+.suspendBtn:hover { background: rgba(248, 113, 113, 0.22); }
+
+.ghostBtn {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.ghostBtn:hover { background: var(--surface-2); }
+
+.toggleOn,
+.toggleOff {
+    padding: 0.2rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.toggleOn {
+    background: rgba(52, 211, 153, 0.12);
+    color: var(--success);
+    border: 1px solid rgba(52, 211, 153, 0.5);
+}
+
+.toggleOff {
+    background: var(--surface-2);
+    color: var(--muted);
+    border: 1px solid var(--border);
+}

@@ -1,0 +1,143 @@
+.main {
+    max-width: 960px;
+    margin: 2.5rem auto;
+    padding: 0 1rem;
+}
+
+.header {
+    margin-bottom: 1.5rem;
+}
+
+.meta {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.8rem;
+}
+
+.photoTag, .videoTag, .subTag, .draftTag {
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.photoTag { background: rgba(139, 92, 246, 0.18); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.4); }
+.videoTag { background: rgba(236, 72, 153, 0.18); color: #f9a8d4; border: 1px solid rgba(236, 72, 153, 0.4); }
+.subTag   { background: rgba(251, 191, 36, 0.12); color: var(--warning); border: 1px solid rgba(251, 191, 36, 0.4); }
+.draftTag { background: var(--surface-2); color: var(--muted); border: 1px solid var(--border); }
+
+.header h1 {
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    letter-spacing: -0.02em;
+}
+
+.date {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin: 0.3rem 0 0;
+}
+
+.cover {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+}
+
+.coverBlur img {
+    filter: blur(14px) brightness(0.6);
+    transform: scale(1.1);
+}
+
+.block {
+    margin-bottom: 2.5rem;
+}
+
+.block h2 {
+    font-size: 1.1rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.9rem;
+}
+
+.body {
+    color: #d6d6dc;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    max-width: 70ch;
+}
+
+.tags {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.tags li {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    border-radius: 999px;
+    padding: 0.25rem 0.7rem;
+    font-size: 0.8rem;
+}
+
+.backLink a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.backLink a:hover {
+    color: var(--text);
+}
+
+.gate {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.gate p {
+    font-size: 1.05rem;
+    margin-bottom: 1.2rem;
+}
+
+.gateBtn {
+    display: inline-block;
+    background: var(--gradient);
+    color: #fff;
+    padding: 0.65rem 1.5rem;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.gateBtn:hover {
+    opacity: 0.9;
+}
+
+.gateNote {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.gateNote a {
+    color: var(--text);
+}

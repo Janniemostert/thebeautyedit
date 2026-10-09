@@ -1,0 +1,67 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 65vh;
+    padding: 2rem 1rem;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    max-width: 420px;
+    width: 100%;
+}
+
+.brand {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.brand span {
+    background: var(--gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.card p {
+    color: var(--muted);
+    margin-bottom: 1.8rem;
+    line-height: 1.6;
+}
+
+.googleBtn {
+    background: #fff;
+    color: #1f1f1f;
+    border: none;
+    border-radius: 999px;
+    padding: 0.8rem 1.6rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: background 0.2s;
+}
+
+.googleBtn:hover {
+    background: #ececec;
+}
+
+.small {
+    font-size: 0.75rem;
+    margin: 1.5rem 0 0;
+}

@@ -1,0 +1,79 @@
+.main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem 1rem;
+}
+
+.header {
+    margin-bottom: 1.5rem;
+}
+
+.header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: -0.02em;
+}
+
+.header p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    margin: 0;
+}
+
+.filters {
+    display: flex;
+    gap: 0.4rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filter,
+.filterActive {
+    text-decoration: none;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    transition: color 0.2s, background 0.2s, border-color 0.2s;
+}
+
+.filter:hover {
+    color: var(--text);
+    background: var(--surface-2);
+}
+
+.filterActive {
+    color: #fff;
+    background: var(--gradient);
+    border-color: transparent;
+}
+
+.banner {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 0.8rem 1.2rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.banner a {
+    color: var(--text);
+    text-decoration: underline;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+}
+
+.empty {
+    color: var(--muted);
+    font-style: italic;
+    padding: 3rem 0;
+    text-align: center;
+}
