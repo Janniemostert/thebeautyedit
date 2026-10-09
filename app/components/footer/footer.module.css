@@ -2,7 +2,7 @@
     margin-top: 5rem;
     border-top: 1px solid var(--border);
     background: var(--surface);
-    padding: 2.5rem 1rem 1.5rem;
+    padding: 2.5rem 1rem calc(1.5rem + env(safe-area-inset-bottom, 0px));
 }
 
 .inner {

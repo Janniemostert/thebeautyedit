@@ -4,7 +4,7 @@
    - Auth, admin and API requests are never cached.
    Bump VERSION to drop old caches after a big change. */
 
-const VERSION      = 'v1';
+const VERSION      = 'v2';
 const STATIC_CACHE = `static-${VERSION}`;
 const PAGE_CACHE   = `pages-${VERSION}`;
 const OFFLINE_URL  = '/offline';
