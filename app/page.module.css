@@ -25,19 +25,20 @@
   pointer-events: none;
 }
 
+/* The logo is the page heading (h1) since it carries the site name. */
 .heroLogo {
   position: relative;
   display: inline-block;
-  width: 180px;
-  height: 180px;
-  margin-bottom: 1rem;
+  width: 220px;
+  height: 220px;
+  margin: 0 0 1.25rem;
   filter: drop-shadow(0 16px 40px rgba(0, 0, 0, 0.55));
 }
 
 @media (min-width: 768px) {
   .heroLogo {
-    width: 260px;
-    height: 260px;
+    width: 320px;
+    height: 320px;
   }
 }
 
@@ -51,35 +52,10 @@
   position: relative;
   color: var(--muted);
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.25em;
   font-size: 0.75rem;
   font-weight: 600;
   margin-bottom: 1rem;
-}
-
-.hero h1 {
-  position: relative;
-  font-size: clamp(3rem, 12vw, 6.5rem);
-  letter-spacing: -0.04em;
-  font-weight: 700;
-  margin: 0 0 1rem;
-}
-
-.heroMark {
-  background: var(--gradient);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.heroBy {
-  position: relative;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.3em;
-  font-size: 0.85rem;
-  font-weight: 500;
-  margin: -0.25rem 0 1.5rem;
 }
 
 .tagline {

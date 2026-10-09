@@ -1,7 +1,7 @@
 'use client';
 import { signIn } from 'next-auth/react';
 import Image from 'next/image';
-import { site } from '@/lib/site';
+import { site, LOGO_SRC } from '@/lib/site';
 import classes from './signin.module.css';
 
 export default function SignInPage() {
@@ -9,7 +9,7 @@ export default function SignInPage() {
         <main className={classes.main}>
             <div className={classes.card}>
                 <span className={classes.logoTile}>
-                    <Image src="/logo.png" alt={site.fullName} width={72} height={72} />
+                    <Image src={LOGO_SRC} alt={site.fullName} width={96} height={96} />
                 </span>
                 <p className={classes.brand}>The <span>Beauty</span> Edit <small>{site.by}</small></p>
                 <h1>Sign in</h1>

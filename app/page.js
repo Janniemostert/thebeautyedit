@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import WorkCard from './components/work/work-card';
 import { getPublishedWork, getViewer } from '@/lib/work';
-import { site } from '@/lib/site';
+import { site, LOGO_SRC } from '@/lib/site';
 import classes from './page.module.css';
 
 export const dynamic = 'force-dynamic';
@@ -19,14 +19,10 @@ export default async function Home() {
     <>
       <section className={classes.hero}>
         <div className={classes.heroGlow} aria-hidden="true" />
-        <span className={classes.heroLogo}>
-          <Image src="/logo.png" alt="" width={260} height={260} priority />
-        </span>
-        <p className={classes.eyebrow}>Beauty creator</p>
-        <h1>
-          The <span className={classes.heroMark}>Beauty</span> Edit
+        <h1 className={classes.heroLogo}>
+          <Image src={LOGO_SRC} alt={site.fullName} width={260} height={260} priority />
         </h1>
-        <p className={classes.heroBy}>{site.by}</p>
+        <p className={classes.eyebrow}>Beauty creator</p>
         <p className={classes.tagline}>{site.tagline}</p>
         <div className={classes.cta}>
           <Link href="/work" className={classes.primaryBtn}>View the work</Link>

@@ -4,7 +4,7 @@ import classes from './header.module.css';
 import NavLink from './nav-link';
 import AuthNav from './auth-nav';
 import MobileMenu from './mobile-menu';
-import { site } from '@/lib/site';
+import { site, LOGO_SRC } from '@/lib/site';
 
 export const NAV_LINKS = [
     { href: '/work',   label: 'All Work' },
@@ -17,7 +17,7 @@ export default function Header() {
         <div className={classes.headerWrap}>
             <header className={classes.header}>
                 <Link href="/" className={classes.logo} aria-label={`${site.fullName} home`}>
-                    <Image src="/logo.png" alt={site.fullName} width={220} height={220} priority className={classes.logoImg} />
+                    <Image src={LOGO_SRC} alt={site.fullName} width={220} height={220} priority className={classes.logoImg} />
                 </Link>
 
                 <nav className={classes.nav} aria-label="Main">
