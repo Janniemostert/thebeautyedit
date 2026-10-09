@@ -50,6 +50,16 @@
   -webkit-text-fill-color: transparent;
 }
 
+.heroBy {
+  position: relative;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: -0.25rem 0 1.5rem;
+}
+
 .tagline {
   position: relative;
   color: var(--muted);

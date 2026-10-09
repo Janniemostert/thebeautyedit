@@ -15,9 +15,11 @@ export default function Header() {
     return (
         <div className={classes.headerWrap}>
             <header className={classes.header}>
-                <Link href="/" className={classes.logo} aria-label={`${site.name} home`}>
-                    <span className={classes.logoMark}>EJ</span>
-                    <span className={classes.logoText}>Edit</span>
+                <Link href="/" className={classes.logo} aria-label={`${site.fullName} home`}>
+                    <span className={classes.logoText}>
+                        The <span className={classes.logoMark}>Beauty</span> Edit
+                    </span>
+                    <span className={classes.logoBy}>{site.by}</span>
                 </Link>
 
                 <nav className={classes.nav} aria-label="Main">

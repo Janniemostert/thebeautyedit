@@ -4,9 +4,9 @@ import { getPublishedWork, getViewer } from '@/lib/work';
 import classes from './work-listing.module.css';
 
 const COPY = {
-    all:   { title: 'All Work',  intro: 'Every photo and video project, newest first.' },
-    photo: { title: 'Photos',    intro: 'Photo edits, retouching and colour work.' },
-    video: { title: 'Videos',    intro: 'Cuts, colour grades and motion pieces.' },
+    all:   { title: 'All Work',  intro: 'Every look, tutorial and transformation, newest first.' },
+    photo: { title: 'Photos',    intro: 'Makeup looks, transformations and beauty shoots.' },
+    video: { title: 'Videos',    intro: 'Tutorials, get-ready-with-me and behind the scenes.' },
 };
 
 export default async function WorkListing({ type = null }) {

@@ -27,26 +27,45 @@
 /* ── Logo ─────────────────────────────────────────── */
 .logo {
   display: flex;
-  align-items: baseline;
-  gap: 0.35rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.05rem;
   text-decoration: none;
   font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.5rem;
   letter-spacing: -0.02em;
   color: var(--text);
+  line-height: 1;
+}
+
+.logoText {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 1.25rem;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .logoText {
+    font-size: 1.4rem;
+  }
 }
 
 .logoMark {
+  font-weight: 700;
   background: var(--gradient);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.logoText {
-  color: var(--text);
+.logoBy {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
   font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-left: 0.1rem;
 }
 
 /* ── Nav ──────────────────────────────────────────── */

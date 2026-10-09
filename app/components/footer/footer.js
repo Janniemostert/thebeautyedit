@@ -8,7 +8,8 @@ export default function Footer() {
             <div className={classes.inner}>
                 <div className={classes.brandCol}>
                     <p className={classes.brand}>
-                        <span className={classes.brandMark}>EJ</span> Edit
+                        The <span className={classes.brandMark}>Beauty</span> Edit
+                        <span className={classes.brandBy}>{site.by}</span>
                     </p>
                     <p className={classes.tagline}>{site.tagline}</p>
                 </div>

@@ -1,8 +1,8 @@
-# EJ Edit — Project Summary
+# The Beauty Edit by EL — Project Summary
 
 ## Overview
 
-A Next.js 14 creator portfolio for photo and video work. Images are uploaded to Cloudinary, videos are linked (YouTube / Vimeo embed), visitors sign in with Google, and an admin panel manages users and work. Forked from the Olive Foodie project and re-themed as a dark creator site.
+A Next.js 14 showcase for a makeup and beauty artist / consultant: looks, transformations, tutorials and behind-the-scenes video. Brand: **The Beauty Edit by EL** (folder name stays `ej-edit`). Images are uploaded to Cloudinary, videos are linked (YouTube / Vimeo embed), visitors sign in with Google, and an admin panel manages users and work. Forked from the Olive Foodie project and re-themed as a dark beauty creator site.
 
 - **Live URL**: _(set after first Netlify deploy, e.g. https://ejedit.netlify.app)_
 - **GitHub**: _(create a new repo and add the remote)_
@@ -18,7 +18,7 @@ A Next.js 14 creator portfolio for photo and video work. Images are uploaded to 
 | Frontend   | Next.js 14 App Router, CSS Modules |
 | Auth       | NextAuth v4, Google OAuth provider |
 | Database   | MongoDB Atlas (via Mongoose)       |
-| Images     | Cloudinary (folder `ej-edit/work`) |
+| Images     | Cloudinary (folder `beauty-edit/work`) |
 | Video      | YouTube / Vimeo links, embedded    |
 | Deployment | Netlify                            |
 
@@ -61,7 +61,7 @@ NEXTAUTH_URL=          # http://localhost:3000 locally / https://<site>.netlify.
 ADMIN_EMAILS=          # Comma-separated list of admin Gmail addresses
 ```
 
-The local `.env.local` was copied from Olive Foodie with the database name changed to `ej-edit`. The same Cloudinary account is used; uploads go to a separate `ej-edit/work` folder.
+The local `.env.local` was copied from Olive Foodie with the database name changed to `ej-edit`. The same Cloudinary account is used; uploads go to a separate `beauty-edit/work` folder.
 
 ---
 

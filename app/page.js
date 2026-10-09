@@ -18,10 +18,11 @@ export default async function Home() {
     <>
       <section className={classes.hero}>
         <div className={classes.heroGlow} aria-hidden="true" />
-        <p className={classes.eyebrow}>Creator portfolio</p>
+        <p className={classes.eyebrow}>Beauty creator</p>
         <h1>
-          <span className={classes.heroMark}>EJ</span> Edit
+          The <span className={classes.heroMark}>Beauty</span> Edit
         </h1>
+        <p className={classes.heroBy}>{site.by}</p>
         <p className={classes.tagline}>{site.tagline}</p>
         <div className={classes.cta}>
           <Link href="/work" className={classes.primaryBtn}>View the work</Link>
@@ -50,9 +51,10 @@ export default async function Home() {
         <section className={classes.about} id="about">
           <h2>About</h2>
           <p>
-            EJ Edit is a growing collection of photo and video projects: colour work, retouching,
-            cuts and motion pieces. Browse the gallery, watch the latest edits, and sign in with
-            Google to join the conversation.
+            The Beauty Edit by EL is a growing collection of makeup looks, transformations,
+            tutorials and beauty advice from a professional makeup artist and consultant.
+            Browse the looks, watch the latest videos, and sign in with Google to join the
+            conversation or book a consultation.
           </p>
           <a href={`mailto:${site.contactEmail}`} className={classes.ghostBtn}>Get in touch</a>
         </section>
