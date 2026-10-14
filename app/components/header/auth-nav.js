@@ -1,5 +1,5 @@
 'use client';
-import { useSession, signIn, signOut } from 'next-auth/react';
+import { useSession, signOut } from 'next-auth/react';
 import md5 from 'md5';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -12,9 +12,9 @@ export default function AuthNav() {
 
     if (!session) {
         return (
-            <button onClick={() => signIn('google', { callbackUrl: '/' })} className={classes.signInBtn}>
+            <Link href="/auth/signin" className={classes.signInBtn}>
                 Sign In
-            </button>
+            </Link>
         );
     }
 
@@ -37,6 +37,9 @@ export default function AuthNav() {
             <span className={classes.name}>{session.user.name.split(' ')[0]}</span>
             {session.user.status === 'pending' && (
                 <Link href="/pending" className={classes.pendingBadge}>Pending</Link>
+            )}
+            {session.user.role !== 'admin' && (
+                <Link href="/bookings" className={classes.bookingsLink}>Bookings</Link>
             )}
             <button onClick={() => signOut({ callbackUrl: '/' })} className={classes.signOutBtn}>
                 Sign Out

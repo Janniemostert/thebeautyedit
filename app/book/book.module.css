@@ -1,0 +1,364 @@
+.main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3rem 1rem 4rem;
+}
+
+.intro {
+    margin-bottom: 2.5rem;
+}
+
+.intro h1 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+}
+
+.intro p {
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 60ch;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+}
+
+.empty,
+.muted {
+    color: var(--muted);
+}
+
+.flow {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+}
+
+.step h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.stepNum {
+    display: inline-grid;
+    place-items: center;
+    width: 1.7rem;
+    height: 1.7rem;
+    border-radius: 50%;
+    background: var(--gradient);
+    color: #fff;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+/* Services */
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.8rem;
+}
+
+.serviceCard {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    text-align: left;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.1rem;
+    color: var(--text);
+    font-family: inherit;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.serviceCard:hover {
+    border-color: var(--muted);
+}
+
+.serviceName {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.serviceMeta {
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.serviceDesc {
+    color: var(--muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.selected,
+.serviceCard.selected {
+    border-color: var(--accent);
+    background: rgba(199, 103, 138, 0.12);
+}
+
+/* Calendar */
+.calendar {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    max-width: 420px;
+}
+
+.calHead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.calHead button {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.calHead button:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+.calGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.3rem;
+}
+
+.calDow {
+    text-align: center;
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding-bottom: 0.3rem;
+}
+
+.calDay {
+    aspect-ratio: 1;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--muted);
+    opacity: 0.4;
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+.calDay.open {
+    opacity: 1;
+    color: var(--text);
+    background: var(--surface-2);
+    border-color: var(--border);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.calDay.open:hover {
+    border-color: var(--accent);
+}
+
+.calDay.selected {
+    background: var(--gradient);
+    color: #fff;
+    border-color: transparent;
+}
+
+.linkBtn {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-family: inherit;
+    font-size: 0.85rem;
+    margin-top: 0.8rem;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Times */
+.slots {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+    gap: 0.5rem;
+}
+
+.slot {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 0.55rem 0;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.slot:hover {
+    border-color: var(--accent);
+}
+
+.slot.selected {
+    background: var(--gradient);
+    color: #fff;
+    border-color: transparent;
+}
+
+/* Confirm */
+.summary {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 1rem 1.2rem;
+    margin-bottom: 1.2rem;
+}
+
+.notice {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.2rem;
+}
+
+.notice p {
+    color: var(--muted);
+    margin-bottom: 0.9rem;
+}
+
+.notice p:last-child {
+    margin-bottom: 0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 520px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+.field input,
+.field textarea {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    padding: 0.65rem 0.85rem;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.field input:focus,
+.field textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.error {
+    color: var(--danger);
+    background: rgba(248, 113, 113, 0.1);
+    border: 1px solid rgba(248, 113, 113, 0.4);
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.primaryBtn,
+.ghostBtn {
+    display: inline-block;
+    padding: 0.75rem 1.6rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    font-family: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.primaryBtn {
+    background: var(--gradient);
+    color: #fff;
+    border: none;
+    align-self: flex-start;
+}
+
+.primaryBtn:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.ghostBtn {
+    color: var(--text);
+    border: 1px solid var(--border);
+    background: transparent;
+}
+
+.done {
+    text-align: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.5rem 1.5rem;
+}
+
+.done p {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.doneIcon {
+    display: inline-grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: rgba(52, 211, 153, 0.15);
+    color: var(--success);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.doneActions {
+    display: flex;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+    justify-content: inherit;
+}
+
+.done .doneActions {
+    justify-content: center;
+}

@@ -1,0 +1,221 @@
+/* Shared by Admin → Bookings, Schedule and Services. */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.clash {
+    border-color: rgba(248, 113, 113, 0.6);
+}
+
+.clashText {
+    color: var(--danger);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.cardTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.when {
+    font-weight: 600;
+    margin: 0;
+}
+
+.time {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0.1rem 0 0;
+    font-family: var(--font-heading);
+}
+
+.service {
+    color: var(--accent);
+    font-weight: 600;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.client {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    font-size: 0.88rem;
+}
+
+.client a {
+    color: var(--muted);
+    text-decoration: none;
+    word-break: break-all;
+}
+
+.client a:hover {
+    color: var(--text);
+}
+
+.note {
+    display: block;
+    color: var(--muted);
+    font-style: italic;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.actions {
+    margin-top: 0.3rem;
+}
+
+.declineForm {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 220px;
+}
+
+.declineForm textarea,
+.form input,
+.form select,
+.inline input,
+.inline select {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    padding: 0.5rem 0.7rem;
+    font-size: 0.9rem;
+    font-family: inherit;
+    color-scheme: dark;
+}
+
+.declineForm textarea:focus,
+.form input:focus,
+.form select:focus,
+.inline input:focus,
+.inline select:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.error {
+    color: var(--danger);
+    font-size: 0.85rem;
+    margin: 0.3rem 0 0;
+}
+
+.ok {
+    color: var(--success);
+    font-size: 0.85rem;
+    margin: 0.3rem 0 0;
+}
+
+.day {
+    margin-bottom: 1.2rem;
+}
+
+.day h3 {
+    font-size: 0.95rem;
+    margin: 0 0 0.5rem;
+}
+
+.timeCell {
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+/* Forms */
+.form {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.9rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.2rem;
+    margin-top: 0.8rem;
+}
+
+.form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+.form .check,
+.check {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    display: flex;
+}
+
+.wide {
+    grid-column: 1 / -1;
+}
+
+.submitBtn {
+    background: var(--gradient);
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.4rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.submitBtn:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+/* Small inline forms (schedule rows) */
+.inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.hint {
+    color: var(--muted);
+    font-size: 0.82rem;
+    line-height: 1.5;
+    margin: 0 0 0.8rem;
+}
+
+.warning {
+    color: var(--warning);
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.4);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0 0 1.2rem;
+}
+
+.warning a {
+    color: inherit;
+    font-weight: 600;
+}

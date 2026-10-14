@@ -10,6 +10,7 @@ export const NAV_LINKS = [
     { href: '/work',   label: 'All Work' },
     { href: '/photos', label: 'Photos' },
     { href: '/videos', label: 'Videos' },
+    { href: '/book',   label: 'Book' },
 ];
 
 export default function Header() {

@@ -59,7 +59,14 @@ GOOGLE_CLIENT_SECRET=  # Google OAuth client secret
 NEXTAUTH_SECRET=       # Random secret string (32+ chars)
 NEXTAUTH_URL=          # http://localhost:3000 locally / https://<site>.netlify.app on Netlify
 ADMIN_EMAILS=          # Comma-separated list of admin Gmail addresses
+GMAIL_USER=            # Gmail address that sends booking / account emails
+GMAIL_APP_PASSWORD=    # 16-character Google App Password for that account (not the normal password)
+NOTIFY_EMAILS=         # Optional: who gets "new booking" / "new account" emails. Defaults to ADMIN_EMAILS
+MONGODB_DB=            # Optional, local only: e.g. ej-edit-dev to test without touching live data
 ```
+
+Without `GMAIL_USER` / `GMAIL_APP_PASSWORD` emails are not sent; they are printed in the terminal running `npm run dev` instead.
+To create an App Password: Google Account → Security → 2-Step Verification (must be on) → App passwords.
 
 The local `.env.local` was copied from Olive Foodie with the database name changed to `ej-edit`. The same Cloudinary account is used; uploads go to a separate `beauty-edit/work` folder.
 
@@ -88,10 +95,29 @@ Stored in the `works` collection (`lib/models/Work.js`):
 ## Access & Admin
 
 - Anyone can browse public work.
+- Accounts: "Continue with Google" or email + password (`/auth/register`). Every new account is `pending` until approved; admins get an email for each new sign-up and the user gets one when approved.
+- Registering with an email that already signs in with Google is refused (the email isn't verified, so attaching a password would allow account takeover).
 - Signing in with Google creates a `pending` user. Admins approve users at `/admin` (tiers are kept from the original project).
 - `active` users and admins can comment and see members-only work.
-- Admin role is assigned on first login if the Google email is in `ADMIN_EMAILS`. For an existing user, change `role` to `admin` in MongoDB Atlas.
+- Admin role is given at sign-in to anyone whose email is in `ADMIN_EMAILS`, including existing users (they are promoted on their next sign-in).
 - Admin pages: `/admin` (users), `/admin/work` (list, publish/draft and featured toggles), `/admin/work/new`, `/admin/work/[id]/edit`.
+
+---
+
+## Bookings
+
+Clients pick a service, a day and a free start time on `/book`, then send a request (active accounts only; visitors can see open times). Admins get an email, approve or decline in **Admin → Bookings**, and the client gets an email (with a calendar file when approved). Clients see and cancel their bookings on `/bookings`.
+
+- **Only approved bookings take a time.** Approving one automatically declines other pending requests that overlap it and emails those clients.
+- **Admin → Services**: name, length, price, description. Length decides which start times fit. Hide a service to stop new bookings.
+- **Admin → Schedule**:
+  - Weekly hours, several ranges per day (e.g. 09:00–12:00 and 13:00–17:00 for a lunch break).
+  - Rules: start-time step, break after each appointment, minimum notice, how far ahead clients can book.
+  - Blocks: a date range, all day or only certain hours on each of those days.
+  - Special hours for one date (open a Sunday, close a public holiday, shorter day).
+- **Add a booking** (Admin → Bookings) for phone / WhatsApp bookings; confirmed immediately.
+- Times are in `site.timeZone` (`lib/site.js`, Africa/Johannesburg). Dates are stored as `YYYY-MM-DD` and times as `HH:MM` in that zone; booking start/end as UTC dates.
+- Models: `Service`, `Schedule` (single document), `Booking`. Logic: `lib/booking.js` (availability), `lib/bookingActions.js`, `lib/scheduleActions.js`, `lib/email.js`.
 
 ---
 
@@ -121,10 +147,13 @@ The site is installable on phone home screens (Android "Install app" / iPhone Sh
 ```
 app/
   layout.js                 # Root layout — Header + Footer + Providers
-  page.js                   # Home: hero + featured work + about
+  page.js                   # Home: hero, Watch / Book paths, featured work, services, about
+  book/                     # Public booking flow
+  bookings/                 # Client's own bookings
+  auth/register/            # Email + password sign-up
   work/                     # All work listing + /work/[slug] detail
   photos/, videos/          # Filtered listings
-  admin/                    # Users + work management (role-protected)
+  admin/                    # Bookings, schedule, services, users, work (role-protected)
   auth/signin/              # Google sign-in page
   pending/                  # Pending / suspended account page
   api/auth/[...nextauth]    # NextAuth route

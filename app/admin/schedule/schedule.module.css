@@ -1,0 +1,146 @@
+.panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.panel input,
+.panel select {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    padding: 0.45rem 0.6rem;
+    font-size: 0.9rem;
+    font-family: inherit;
+    color-scheme: dark;
+}
+
+.panel input[type="checkbox"] {
+    padding: 0;
+    accent-color: var(--accent);
+    width: 1rem;
+    height: 1rem;
+}
+
+.panel input:focus,
+.panel select:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.week {
+    display: flex;
+    flex-direction: column;
+}
+
+.dayRow {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+}
+
+.dayRow:last-child {
+    border-bottom: none;
+}
+
+@media (min-width: 640px) {
+    .dayRow {
+        grid-template-columns: 150px 1fr;
+    }
+}
+
+.dayToggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding-top: 0.35rem;
+}
+
+.ranges {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    align-items: flex-start;
+}
+
+.range input[type="time"] {
+    width: 7.5rem;
+}
+
+.iconBtn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    border-radius: 50%;
+    width: 1.8rem;
+    height: 1.8rem;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.iconBtn:hover {
+    color: var(--danger);
+    border-color: var(--danger);
+}
+
+.addBtn {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-family: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 0.2rem 0;
+}
+
+.rules,
+.formRow {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 0.9rem;
+    align-items: end;
+}
+
+.rules label,
+.formRow label,
+.noteField {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+.rules {
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.footer p {
+    margin: 0;
+}

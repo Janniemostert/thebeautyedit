@@ -87,3 +87,17 @@
     overflow: auto;
     min-width: 0;
 }
+
+.count {
+    display: inline-block;
+    min-width: 1.3rem;
+    margin-left: 0.4rem;
+    padding: 0 0.35rem;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    line-height: 1.3rem;
+    text-align: center;
+}

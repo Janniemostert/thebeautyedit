@@ -32,6 +32,9 @@
 
 .signInBtn,
 .signOutBtn {
+    display: inline-block;
+    text-decoration: none;
+    line-height: 1.4;
     background: transparent;
     border: 1px solid var(--border);
     color: var(--text);
@@ -70,4 +73,15 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.03em;
+}
+
+.bookingsLink {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.bookingsLink:hover {
+    color: var(--text);
 }

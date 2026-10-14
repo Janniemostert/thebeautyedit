@@ -27,9 +27,13 @@ export default withAuth(
         callbacks: {
             authorized: ({ token }) => !!token,
         },
+        pages: {
+            signIn: '/auth/signin',
+        },
     }
 );
 
 export const config = {
-    matcher: ['/admin/:path*', '/pending'],
+    // /book is public so visitors can see open times; requesting one is checked in the action.
+    matcher: ['/admin/:path*', '/pending', '/bookings'],
 };

@@ -213,3 +213,109 @@
   line-height: 1.7;
   margin-bottom: 1.5rem;
 }
+
+/* ── Watch / Book paths ─────────────────────────── */
+.paths {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 3.5rem;
+}
+
+@media (min-width: 700px) {
+  .paths {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.path {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.6rem 1.5rem;
+  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.path:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.pathBook {
+  background: linear-gradient(160deg, rgba(199, 103, 138, 0.18), var(--surface) 60%);
+}
+
+.pathIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background: var(--surface-2);
+  color: var(--accent);
+  font-size: 0.95rem;
+}
+
+.pathTitle {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.pathText {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.pathLink {
+  margin-top: auto;
+  padding-top: 0.4rem;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* ── Services ───────────────────────────────────── */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.9rem;
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.1rem 1.2rem;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+
+.service:hover {
+  border-color: var(--accent);
+}
+
+.serviceName {
+  font-weight: 600;
+}
+
+.serviceMeta {
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.serviceDesc {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}

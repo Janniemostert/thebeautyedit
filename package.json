@@ -9,12 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "cloudinary": "^2.9.0",
     "md5": "^2.3.0",
     "mongoose": "^8.23.0",
     "mongoose-autopopulate": "^1.2.1",
     "next": "^14.2.12",
     "next-auth": "^4.24.14",
+    "nodemailer": "^7.0.13",
     "react": "^18",
     "react-dom": "^18",
     "slugify": "^1.6.6",

@@ -1,10 +1,10 @@
 /* Service worker for The Beauty Edit.
    - Pages: network first, fall back to the last cached copy, then /offline.
    - Hashed build assets, icons and Cloudinary media: cache first.
-   - Auth, admin and API requests are never cached.
+   - Auth, admin, API and booking requests are never cached.
    Bump VERSION to drop old caches after a big change. */
 
-const VERSION      = 'v2';
+const VERSION      = 'v3';
 const STATIC_CACHE = `static-${VERSION}`;
 const PAGE_CACHE   = `pages-${VERSION}`;
 const OFFLINE_URL  = '/offline';
@@ -60,8 +60,8 @@ self.addEventListener('fetch', (event) => {
 
     if (url.origin !== self.location.origin) return;
 
-    // Never cache auth, admin or API traffic.
-    if (url.pathname.startsWith('/api/') || url.pathname.startsWith('/admin') || url.pathname.startsWith('/auth')) return;
+    // Never cache auth, admin, API or booking traffic (availability must always be live).
+    if (['/api/', '/admin', '/auth', '/book'].some((p) => url.pathname.startsWith(p))) return;
 
     if (request.mode === 'navigate') {
         event.respondWith(networkFirst(request));

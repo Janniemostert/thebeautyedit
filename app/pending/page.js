@@ -27,7 +27,7 @@ export default async function PendingPage() {
                     <>
                         <div className={classes.badge}>⏳ Pending approval</div>
                         <h1>Thanks for signing up!</h1>
-                        <p>Your account is <strong>awaiting approval</strong>. Once it is approved you will be able to comment and view members-only work.</p>
+                        <p>Your account is <strong>awaiting approval</strong>. We will email you as soon as it is approved. You will then be able to book appointments, comment and view members-only work.</p>
                     </>
                 )}
                 {isSuspended && (
@@ -59,6 +59,7 @@ export default async function PendingPage() {
                     <div className={classes.browseLinks}>
                         <Link href="/photos" className={classes.browseBtn}>Photos</Link>
                         <Link href="/videos" className={classes.browseBtn}>Videos</Link>
+                        <Link href="/book" className={classes.browseBtn}>Open times</Link>
                     </div>
                 </div>
             </div>

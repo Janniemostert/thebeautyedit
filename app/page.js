@@ -2,16 +2,19 @@ import Link from 'next/link';
 import Image from 'next/image';
 import WorkCard from './components/work/work-card';
 import { getPublishedWork, getViewer } from '@/lib/work';
+import { getServices } from '@/lib/booking';
+import { formatDuration } from '@/lib/time';
 import { site, LOGO_SRC } from '@/lib/site';
 import classes from './page.module.css';
 
 export const dynamic = 'force-dynamic';
 
 export default async function Home() {
-  const [{ isActive }, featured, latest] = await Promise.all([
+  const [{ isActive }, featured, latest, services] = await Promise.all([
     getViewer(),
     getPublishedWork({ featuredOnly: true, limit: 6 }),
     getPublishedWork({ limit: 6 }),
+    getServices(),
   ]);
   const showcase = featured.length > 0 ? featured : latest;
 
@@ -28,12 +31,28 @@ export default async function Home() {
         <p className={classes.eyebrow}>Beauty creator</p>
         <p className={classes.tagline}>{site.tagline}</p>
         <div className={classes.cta}>
-          <Link href="/work" className={classes.primaryBtn}>View my work</Link>
-          <Link href="/videos" className={classes.ghostBtn}>Watch videos</Link>
+          <Link href="/book" className={classes.primaryBtn}>Book an appointment</Link>
+          <Link href="/work" className={classes.ghostBtn}>Watch my work</Link>
         </div>
       </section>
 
       <main className={classes.main}>
+        {/* Two ways in: watch the content, or book a session. */}
+        <section className={classes.paths} aria-label="Get started">
+          <Link href="/videos" className={classes.path}>
+            <span className={classes.pathIcon} aria-hidden="true">▶</span>
+            <span className={classes.pathTitle}>Watch</span>
+            <span className={classes.pathText}>Looks, transformations, tutorials and behind-the-scenes videos.</span>
+            <span className={classes.pathLink}>Browse the work →</span>
+          </Link>
+          <Link href="/book" className={`${classes.path} ${classes.pathBook}`}>
+            <span className={classes.pathIcon} aria-hidden="true">✦</span>
+            <span className={classes.pathTitle}>Book</span>
+            <span className={classes.pathText}>Check open times and request an appointment. You&apos;ll get an email once it&apos;s confirmed.</span>
+            <span className={classes.pathLink}>See available times →</span>
+          </Link>
+        </section>
+
         <section className={classes.section}>
           <div className={classes.sectionHead}>
             <h2>{featured.length > 0 ? 'Featured' : 'Latest'}</h2>
@@ -51,13 +70,33 @@ export default async function Home() {
           )}
         </section>
 
+        {services.length > 0 && (
+          <section className={classes.section} id="services">
+            <div className={classes.sectionHead}>
+              <h2>Services</h2>
+              <Link href="/book">Book now →</Link>
+            </div>
+            <div className={classes.services}>
+              {services.map((s) => (
+                <Link key={s._id} href={`/book?service=${s._id}`} className={classes.service}>
+                  <span className={classes.serviceName}>{s.name}</span>
+                  <span className={classes.serviceMeta}>
+                    {formatDuration(s.durationMinutes)}{s.price ? ` · ${s.price}` : ''}
+                  </span>
+                  {s.description && <span className={classes.serviceDesc}>{s.description}</span>}
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
         <section className={classes.about} id="about">
           <h2>About</h2>
           <p>
             The Beauty Edit by EL is a growing collection of makeup looks, transformations,
             tutorials and beauty advice from a professional makeup artist and consultant.
-            Browse the looks, watch the latest videos, and sign in with Google to join the
-            conversation or book a consultation.
+            Browse the looks, watch the latest videos, or create an account to join the
+            conversation and book an appointment.
           </p>
           <a href={`mailto:${site.contactEmail}`} className={classes.ghostBtn}>Get in touch</a>
         </section>
