@@ -4,7 +4,7 @@ import classes from '../admin.module.css';
 
 export function DeleteWorkButton({ id }) {
     function handleSubmit(e) {
-        if (!confirm('Delete this piece? All its images will be removed from Cloudinary. This cannot be undone.')) {
+        if (!confirm('Delete this post? All its images will be removed from Cloudinary. This cannot be undone.')) {
             e.preventDefault();
         }
     }

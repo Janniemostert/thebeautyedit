@@ -40,10 +40,35 @@ function FilePreviews({ files }) {
     );
 }
 
+// One before or after image picker, showing the current image when editing.
+function SideImage({ side, current }) {
+    const [files, setFiles] = useState([]);
+    const label = side === 'before' ? 'Before' : 'After';
+    return (
+        <div className={classes.field}>
+            <label htmlFor={`${side}Image`}>{current ? `Replace ${label.toLowerCase()} image` : `${label} image *`}</label>
+            {current && files.length === 0 && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={current} alt={`Current ${label.toLowerCase()}`} className={classes.previewImg} />
+            )}
+            <FilePreviews files={files} />
+            <input
+                id={`${side}Image`}
+                type="file"
+                name={`${side}Image`}
+                accept="image/*"
+                onChange={(e) => setFiles(Array.from(e.target.files || []))}
+            />
+        </div>
+    );
+}
+
 export default function WorkForm({ work = null }) {
     const isEdit = !!work;
     const [state, formAction] = useFormState(isEdit ? updateWork : createWork, initialState);
     const [type, setType] = useState(work?.type || 'photo');
+    const [format, setFormat] = useState(work?.format || 'standard');
+    const beforeAfter = format === 'beforeAfter';
     const [coverFiles, setCoverFiles] = useState([]);
     const [galleryFiles, setGalleryFiles] = useState([]);
 
@@ -71,9 +96,42 @@ export default function WorkForm({ work = null }) {
                     </label>
                 </fieldset>
 
-                {type === 'video' && <VideoUploader initialUrl={work?.videoFile || null} />}
+                <fieldset className={classes.typeRow}>
+                    <legend>Post style *</legend>
+                    <label className={`${classes.typeChip} ${!beforeAfter ? classes.typeChipActive : ''}`}>
+                        <input type="radio" name="format" value="standard" checked={!beforeAfter} onChange={() => setFormat('standard')} />
+                        Simple post
+                    </label>
+                    <label className={`${classes.typeChip} ${beforeAfter ? classes.typeChipActive : ''}`}>
+                        <input type="radio" name="format" value="beforeAfter" checked={beforeAfter} onChange={() => setFormat('beforeAfter')} />
+                        Before &amp; after
+                    </label>
+                </fieldset>
 
-                <div className={classes.field}>
+                {beforeAfter && (
+                    <div className={classes.pair}>
+                        {type === 'photo' ? (
+                            <>
+                                <SideImage side="before" current={work?.beforeImage} />
+                                <SideImage side="after" current={work?.afterImage} />
+                            </>
+                        ) : (
+                            <>
+                                <VideoUploader name="beforeVideo" label="Before video *" initialUrl={work?.beforeVideo || null} showHint={false} />
+                                <VideoUploader name="afterVideo" label="After video *" initialUrl={work?.afterVideo || null} showHint={false} />
+                            </>
+                        )}
+                        <span className={`${classes.hint} ${classes.pairHint}`}>
+                            {type === 'photo'
+                                ? 'Visitors drag a slider across the two images, so use photos with the same framing and size. Keep both under about 4 MB together.'
+                                : 'The two videos play side by side. Uploads go straight to Cloudinary (up to 100 MB each, MP4 works best).'}
+                        </span>
+                    </div>
+                )}
+
+                {type === 'video' && !beforeAfter && <VideoUploader initialUrl={work?.videoFile || null} />}
+
+                {!beforeAfter && <div className={classes.field}>
                     <label htmlFor="videoLink">Video link (optional)</label>
                     <input
                         id="videoLink"
@@ -85,13 +143,13 @@ export default function WorkForm({ work = null }) {
                     <span className={classes.hint}>
                         YouTube and Vimeo links play on the page. WhatsApp, Instagram and TikTok links can&apos;t be embedded,
                         so they show as a &ldquo;Watch on …&rdquo; button next to the uploaded video.
-                        {type === 'video' && ' A video piece needs either an uploaded file or a link.'}
+                        {type === 'video' && ' A video post needs either an uploaded file or a link.'}
                     </span>
-                </div>
+                </div>}
 
                 <div className={classes.field}>
                     <label htmlFor="description">Description</label>
-                    <textarea id="description" name="description" rows={6} defaultValue={work?.description || ''} placeholder="What was this piece about? Tools, process, client…" />
+                    <textarea id="description" name="description" rows={6} defaultValue={work?.description || ''} placeholder="What was this post about? Tools, process, client…" />
                 </div>
 
                 <div className={classes.field}>
@@ -101,7 +159,7 @@ export default function WorkForm({ work = null }) {
                 </div>
 
                 <div className={classes.field}>
-                    <label htmlFor="coverImage">{isEdit ? 'Replace cover image' : 'Cover image'} {type === 'photo' ? '' : '(optional, otherwise a frame from the video is used)'}</label>
+                    <label htmlFor="coverImage">{isEdit ? 'Replace cover image' : 'Cover image'} {beforeAfter ? '(optional, otherwise the after shot is used)' : type === 'photo' ? '' : '(optional, otherwise a frame from the video is used)'}</label>
                     {isEdit && work.coverImage && (
                         <div className={classes.currentRow}>
                             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -175,9 +233,9 @@ export default function WorkForm({ work = null }) {
                         <button
                             type="submit"
                             className={`${classes.submitBtn} ${classes.dangerBtn}`}
-                            onClick={(e) => { if (!confirm('Delete this piece and all its images? This cannot be undone.')) e.preventDefault(); }}
+                            onClick={(e) => { if (!confirm('Delete this post and all its images? This cannot be undone.')) e.preventDefault(); }}
                         >
-                            Delete this work
+                            Delete this post
                         </button>
                     </form>
                 </>

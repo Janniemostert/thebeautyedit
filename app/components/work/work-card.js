@@ -7,7 +7,7 @@ export default function WorkCard({ work, locked = false }) {
     const thumb = getWorkThumbnail(work);
 
     return (
-        <Link href={`/work/${work.slug}`} className={classes.card}>
+        <Link href={`/content/${work.slug}`} className={classes.card}>
             <div className={classes.media}>
                 {thumb ? (
                     <Image
@@ -26,6 +26,7 @@ export default function WorkCard({ work, locked = false }) {
                     <span className={`${classes.badge} ${work.type === 'video' ? classes.video : classes.photo}`}>
                         {work.type === 'video' ? 'Video' : 'Photo'}
                     </span>
+                    {work.format === 'beforeAfter' && <span className={`${classes.badge} ${classes.ba}`}>Before &amp; After</span>}
                     {locked && <span className={`${classes.badge} ${classes.locked}`}>🔒 Members</span>}
                 </div>
                 {work.type === 'video' && (

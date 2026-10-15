@@ -1,6 +1,7 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { useFormState, useFormStatus } from 'react-dom';
+import Link from 'next/link';
 import { saveService } from '@/lib/scheduleActions';
 import classes from '../admin.module.css';
 import own from '../bookings/bookings.module.css';
@@ -14,21 +15,14 @@ function Submit({ editing }) {
     );
 }
 
-// With `service` it edits that service (opened from an "Edit" button when `compact`).
-export default function ServiceForm({ service, compact = false }) {
+// New service when `service` is empty; editing redirects back to the list after saving.
+export default function ServiceForm({ service = null }) {
     const [state, formAction] = useFormState(saveService, {});
-    const [open, setOpen] = useState(!compact);
     const formRef = useRef(null);
 
     useEffect(() => {
-        if (!state.success) return;
-        if (service) setOpen(false);
-        else formRef.current?.reset();
+        if (state.success && !service) formRef.current?.reset();
     }, [state, service]);
-
-    if (!open) {
-        return <button type="button" className={classes.ghostBtn} onClick={() => setOpen(true)}>Edit</button>;
-    }
 
     return (
         <form ref={formRef} action={formAction} className={own.form}>
@@ -55,7 +49,7 @@ export default function ServiceForm({ service, compact = false }) {
             </label>
             <div className={`${own.wide} ${classes.actions}`}>
                 <Submit editing={!!service} />
-                {compact && <button type="button" className={classes.ghostBtn} onClick={() => setOpen(false)}>Close</button>}
+                {service && <Link href="/admin/services" className={classes.ghostBtn}>Cancel</Link>}
                 {state.error && <p className={own.error}>{state.error}</p>}
                 {state.success && !service && <p className={own.ok}>Service added.</p>}
             </div>

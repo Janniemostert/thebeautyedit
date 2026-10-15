@@ -11,7 +11,7 @@ export default function DeleteServiceButton({ id, name, action }) {
     return (
         <form action={action} onSubmit={confirmDelete}>
             <input type="hidden" name="id" value={id} />
-            <button type="submit" className={classes.suspendBtn}>Delete</button>
+            <button type="submit" className={classes.deleteBtn}>Delete</button>
         </form>
     );
 }

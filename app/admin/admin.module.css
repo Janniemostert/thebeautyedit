@@ -30,8 +30,9 @@
     letter-spacing: 0.1em;
 }
 
+/* No sideways scrolling: on narrower screens (below) each row wraps instead. */
 .tableWrap {
-    overflow-x: auto;
+    overflow: hidden;
     border: 1px solid var(--border);
     border-radius: var(--radius);
     background: var(--surface);
@@ -68,6 +69,41 @@
 .muted {
     color: var(--muted);
     font-size: 0.85rem;
+}
+
+.wrapText {
+    overflow-wrap: anywhere;
+}
+
+/* Narrow screens: each row becomes a wrapping block instead of a scrolling table. */
+@media (max-width: 1000px) {
+    .table thead {
+        display: none;
+    }
+
+    .table,
+    .table tbody,
+    .table td {
+        display: block;
+    }
+
+    .table tr {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.5rem 1.1rem;
+        padding: 0.9rem 1rem;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .table tr:last-child {
+        border-bottom: none;
+    }
+
+    .table td {
+        padding: 0;
+        border: none;
+    }
 }
 
 .emptyRow {
@@ -135,6 +171,7 @@
 .suspendBtn,
 .ghostBtn {
     display: inline-block;
+    white-space: nowrap;
     padding: 0.3rem 0.75rem;
     border-radius: 999px;
     cursor: pointer;
@@ -200,4 +237,23 @@
     background: var(--surface-2);
     color: var(--muted);
     border: 1px solid var(--border);
+}
+
+.deleteBtn {
+    display: inline-block;
+    white-space: nowrap;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: inherit;
+    line-height: 1.4;
+    background: transparent;
+    color: var(--danger);
+    border: 1px solid rgba(248, 113, 113, 0.5);
+}
+
+.deleteBtn:hover {
+    background: rgba(248, 113, 113, 0.12);
 }

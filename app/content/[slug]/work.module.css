@@ -1,6 +1,6 @@
 .main {
     max-width: 960px;
-    margin: 4.5rem auto 2.5rem; /* extra top room for the oversized header logo */
+    margin: 2.5rem auto;
     padding: 0 1rem;
 }
 
@@ -15,7 +15,7 @@
     margin-bottom: 0.8rem;
 }
 
-.photoTag, .videoTag, .subTag, .draftTag {
+.photoTag, .videoTag, .subTag, .draftTag, .baTag {
     padding: 0.2rem 0.6rem;
     border-radius: 999px;
     font-size: 0.7rem;
@@ -28,6 +28,7 @@
 .videoTag { background: rgba(158, 74, 105, 0.18); color: #f4cad8; border: 1px solid rgba(158, 74, 105, 0.4); }
 .subTag   { background: rgba(251, 191, 36, 0.12); color: var(--warning); border: 1px solid rgba(251, 191, 36, 0.4); }
 .draftTag { background: var(--surface-2); color: var(--muted); border: 1px solid var(--border); }
+.baTag    { background: rgba(139, 92, 246, 0.16); color: #d6c8ff; border: 1px solid rgba(139, 92, 246, 0.45); }
 
 .header h1 {
     font-size: clamp(1.8rem, 5vw, 2.8rem);

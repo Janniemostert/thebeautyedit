@@ -19,7 +19,7 @@ export default function Footer() {
                 </div>
 
                 <nav className={classes.links} aria-label="Footer">
-                    <Link href="/work">All Work</Link>
+                    <Link href="/content">All Content</Link>
                     <Link href="/photos">Photos</Link>
                     <Link href="/videos">Videos</Link>
                     <a href={`mailto:${site.contactEmail}`}>Contact</a>

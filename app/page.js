@@ -32,7 +32,7 @@ export default async function Home() {
         <p className={classes.tagline}>{site.tagline}</p>
         <div className={classes.cta}>
           <Link href="/book" className={classes.primaryBtn}>Book an appointment</Link>
-          <Link href="/work" className={classes.ghostBtn}>Watch my work</Link>
+          <Link href="/content" className={classes.ghostBtn}>Watch my content</Link>
         </div>
       </section>
 
@@ -43,7 +43,7 @@ export default async function Home() {
             <span className={classes.pathIcon} aria-hidden="true">▶</span>
             <span className={classes.pathTitle}>Watch</span>
             <span className={classes.pathText}>Looks, transformations, tutorials and behind-the-scenes videos.</span>
-            <span className={classes.pathLink}>Browse the work →</span>
+            <span className={classes.pathLink}>Browse the content →</span>
           </Link>
           <Link href="/book" className={`${classes.path} ${classes.pathBook}`}>
             <span className={classes.pathIcon} aria-hidden="true">✦</span>
@@ -56,11 +56,11 @@ export default async function Home() {
         <section className={classes.section}>
           <div className={classes.sectionHead}>
             <h2>{featured.length > 0 ? 'Featured' : 'Latest'}</h2>
-            <Link href="/work">See all →</Link>
+            <Link href="/content">See all →</Link>
           </div>
 
           {showcase.length === 0 ? (
-            <p className={classes.empty}>No work published yet. The first pieces are on their way.</p>
+            <p className={classes.empty}>Nothing published yet. The first pieces are on their way.</p>
           ) : (
             <div className={classes.grid}>
               {showcase.map((w) => (

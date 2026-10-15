@@ -4,7 +4,7 @@ import { getPublishedWork, getViewer } from '@/lib/work';
 import classes from './work-listing.module.css';
 
 const COPY = {
-    all:   { title: 'All Work',  intro: 'Every look, tutorial and transformation, newest first.' },
+    all:   { title: 'All Content', intro: 'Every look, tutorial and transformation, newest first.' },
     photo: { title: 'Photos',    intro: 'Makeup looks, transformations and beauty shoots.' },
     video: { title: 'Videos',    intro: 'Tutorials, get-ready-with-me and behind the scenes.' },
 };
@@ -26,7 +26,7 @@ export default async function WorkListing({ type = null }) {
             </header>
 
             <nav className={classes.filters} aria-label="Filter">
-                <Link href="/work"   className={!type ? classes.filterActive : classes.filter}>All</Link>
+                <Link href="/content"   className={!type ? classes.filterActive : classes.filter}>All</Link>
                 <Link href="/photos" className={type === 'photo' ? classes.filterActive : classes.filter}>Photos</Link>
                 <Link href="/videos" className={type === 'video' ? classes.filterActive : classes.filter}>Videos</Link>
             </nav>

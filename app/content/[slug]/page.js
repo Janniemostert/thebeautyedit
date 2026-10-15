@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Gallery from '@/app/components/work/gallery';
 import VideoEmbed from '@/app/components/work/video-embed';
+import { BeforeAfterSlider, BeforeAfterVideos } from '@/app/components/work/before-after';
 import Comments from '@/app/components/comments/Comments';
 import { cld } from '@/lib/cloudinary';
 import classes from './work.module.css';
@@ -23,11 +24,14 @@ export async function generateMetadata({ params }) {
     };
 }
 
-function TypeBadge({ type }) {
+function TypeBadge({ type, format }) {
     return (
-        <span className={type === 'video' ? classes.videoTag : classes.photoTag}>
-            {type === 'video' ? 'Video' : 'Photo'}
-        </span>
+        <>
+            <span className={type === 'video' ? classes.videoTag : classes.photoTag}>
+                {type === 'video' ? 'Video' : 'Photo'}
+            </span>
+            {format === 'beforeAfter' && <span className={classes.baTag}>Before &amp; After</span>}
+        </>
     );
 }
 
@@ -46,7 +50,7 @@ export default async function WorkPage({ params }) {
                 <article>
                     <header className={classes.header}>
                         <div className={classes.meta}>
-                            <TypeBadge type={work.type} />
+                            <TypeBadge type={work.type} format={work.format} />
                             <span className={classes.subTag}>Members Only</span>
                         </div>
                         <h1>{work.title}</h1>
@@ -84,7 +88,7 @@ export default async function WorkPage({ params }) {
             parentId:   c.parentId?.toString() || null,
             body:       c.body,
             createdAt:  c.createdAt.toISOString(),
-            userName:   u?.name || 'Unknown',
+            userName:   u?.name || 'Former member',
             userEmail:  u?.email || '',
             userId:     c.userId.toString(),
             userActive: u?.status === 'active' || u?.role === 'admin',
@@ -92,14 +96,15 @@ export default async function WorkPage({ params }) {
     });
 
     const galleryImages = work.images.filter((img) => img !== work.coverImage);
-    const showCover = work.coverImage && work.type !== 'video';
+    const beforeAfter = work.format === 'beforeAfter';
+    const showCover = work.coverImage && work.type !== 'video' && !beforeAfter;
 
     return (
         <main className={classes.main}>
             <article>
                 <header className={classes.header}>
                     <div className={classes.meta}>
-                        <TypeBadge type={work.type} />
+                        <TypeBadge type={work.type} format={work.format} />
                         {work.isSubscriberOnly && <span className={classes.subTag}>Members Only</span>}
                         {work.status === 'draft' && <span className={classes.draftTag}>Draft preview</span>}
                     </div>
@@ -109,7 +114,15 @@ export default async function WorkPage({ params }) {
                     </p>
                 </header>
 
-                {work.type === 'video' && (
+                {work.type === 'video' && beforeAfter && work.beforeVideo && work.afterVideo && (
+                    <BeforeAfterVideos before={work.beforeVideo} after={work.afterVideo} title={work.title} />
+                )}
+
+                {work.type === 'photo' && beforeAfter && work.beforeImage && work.afterImage && (
+                    <BeforeAfterSlider before={work.beforeImage} after={work.afterImage} title={work.title} />
+                )}
+
+                {work.type === 'video' && !beforeAfter && (
                     <div className={classes.block}>
                         <VideoEmbed file={work.videoFile} link={work.videoLink} poster={work.coverImage} title={work.title} />
                     </div>

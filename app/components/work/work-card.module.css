@@ -98,3 +98,8 @@
     font-size: 0.8rem;
     margin: 0;
 }
+
+.ba {
+    background: rgba(139, 92, 246, 0.75);
+    color: #fff;
+}

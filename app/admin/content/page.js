@@ -21,8 +21,8 @@ export default async function AdminWorkPage() {
     return (
         <main className={classes.main}>
             <div className={classes.toolbar}>
-                <h1>Work</h1>
-                <Link href="/admin/work/new" className={classes.btn}>+ New Work</Link>
+                <h1>Content</h1>
+                <Link href="/admin/content/new" className={classes.btn}>+ New Content</Link>
             </div>
 
             <div className={classes.tableWrap}>
@@ -41,7 +41,7 @@ export default async function AdminWorkPage() {
                     </thead>
                     <tbody>
                         {works.length === 0 && (
-                            <tr><td colSpan={8} className={classes.emptyRow}>No work yet. Add your first piece.</td></tr>
+                            <tr><td colSpan={8} className={classes.emptyRow}>No content yet. Add your first post.</td></tr>
                         )}
                         {works.map((w) => {
                             const id = w._id.toString();
@@ -54,7 +54,7 @@ export default async function AdminWorkPage() {
                                         </div>
                                     </td>
                                     <td>
-                                        <Link href={`/work/${w.slug}`} style={{ color: 'inherit', textDecoration: 'none', fontWeight: 500 }}>
+                                        <Link href={`/content/${w.slug}`} style={{ color: 'inherit', textDecoration: 'none', fontWeight: 500 }}>
                                             {w.title}
                                         </Link>
                                         {w.images?.length > 0 && (
@@ -63,6 +63,7 @@ export default async function AdminWorkPage() {
                                     </td>
                                     <td>
                                         <span className={`${classes.badge} ${classes[w.type || 'photo']}`}>{w.type || 'photo'}</span>
+                                        {w.format === 'beforeAfter' && <div className={classes.muted}>Before &amp; after</div>}
                                     </td>
                                     <td><ToggleFeaturedButton id={id} featured={!!w.featured} /></td>
                                     <td>
@@ -74,7 +75,7 @@ export default async function AdminWorkPage() {
                                     <td className={classes.muted}>{new Date(w.createdAt).toLocaleDateString()}</td>
                                     <td>
                                         <div className={classes.actions}>
-                                            <Link href={`/admin/work/${id}/edit`} className={classes.ghostBtn}>Edit</Link>
+                                            <Link href={`/admin/content/${id}/edit`} className={classes.ghostBtn}>Edit</Link>
                                             <DeleteWorkButton id={id} />
                                         </div>
                                     </td>

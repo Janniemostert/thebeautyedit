@@ -36,7 +36,7 @@ function SignInForm() {
     return (
         <>
             <h1>Sign in</h1>
-            <p>Sign in to book appointments, comment on looks and see members-only work.</p>
+            <p>Sign in to book appointments, comment on looks and see members-only content.</p>
 
             <GoogleButton callbackUrl={callbackUrl} />
 

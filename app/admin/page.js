@@ -3,7 +3,8 @@ import User from '@/lib/models/User';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import { redirect } from 'next/navigation';
-import { approveUser, updateUserStatus } from '@/lib/adminActions';
+import { approveUser, updateUserStatus, deleteUser } from '@/lib/adminActions';
+import DeleteUserButton from './delete-user-button';
 import classes from './admin.module.css';
 
 function getExpiryClass(expiresAt) {
@@ -43,8 +44,14 @@ export default async function AdminPage() {
                 <tbody>
                     {users.map((user) => (
                         <tr key={user._id.toString()}>
-                            <td>{user.name}</td>
-                            <td>{user.email}</td>
+                            <td>
+                                <strong>{user.name}</strong>
+                                {user.role === 'admin' && <div className={classes.muted}>Admin</div>}
+                            </td>
+                            <td className={classes.wrapText}>
+                                {user.email}
+                                {user.phone && <div className={classes.muted}>{user.phone}</div>}
+                            </td>
                             <td>
                                 <span className={`${classes.badge} ${classes[user.status]}`}>
                                     {user.status}
@@ -61,7 +68,8 @@ export default async function AdminPage() {
                                     </span>
                                 ) : '—'}
                             </td>
-                            <td className={classes.actions}>
+                            <td>
+                              <div className={classes.actions}>
                                 {user.status === 'pending' && (
                                     <form action={approveUser}>
                                         <input type="hidden" name="userId" value={user._id.toString()} />
@@ -89,6 +97,10 @@ export default async function AdminPage() {
                                         <button type="submit" className={classes.approveBtn}>Reinstate</button>
                                     </form>
                                 )}
+                                {user.role !== 'admin' && (
+                                    <DeleteUserButton userId={user._id.toString()} name={user.name} action={deleteUser} />
+                                )}
+                              </div>
                             </td>
                         </tr>
                     ))}

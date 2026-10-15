@@ -5,7 +5,7 @@ import classes from './work-form.module.css';
 
 const MAX_MB = 100; // Cloudinary free-plan limit per video file
 
-export default function VideoUploader({ initialUrl = null }) {
+export default function VideoUploader({ initialUrl = null, name = 'videoFile', label = 'Video file', showHint = true }) {
     const [url, setUrl]           = useState(initialUrl);
     const [progress, setProgress] = useState(null);
     const [error, setError]       = useState(null);
@@ -58,8 +58,8 @@ export default function VideoUploader({ initialUrl = null }) {
 
     return (
         <div className={classes.field}>
-            <label htmlFor="videoUpload">Video file</label>
-            <input type="hidden" name="videoFile" value={url || ''} />
+            <label htmlFor={`${name}Upload`}>{label}</label>
+            <input type="hidden" name={name} value={url || ''} />
 
             {url && (
                 <div className={classes.videoPreviewWrap}>
@@ -71,7 +71,7 @@ export default function VideoUploader({ initialUrl = null }) {
             )}
 
             <input
-                id="videoUpload"
+                id={`${name}Upload`}
                 type="file"
                 accept="video/*"
                 onChange={handleFile}
@@ -87,10 +87,10 @@ export default function VideoUploader({ initialUrl = null }) {
 
             {error && <p className={classes.error}>{error}</p>}
 
-            <span className={classes.hint}>
+            {showHint && <span className={classes.hint}>
                 Uploads go straight to Cloudinary, so larger files are fine (up to {MAX_MB} MB). MP4 works best.
                 For a WhatsApp video: save it from the channel to your phone or PC first, then upload it here.
-            </span>
+            </span>}
         </div>
     );
 }

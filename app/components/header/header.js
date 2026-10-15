@@ -7,7 +7,7 @@ import MobileMenu from './mobile-menu';
 import { site, LOGO_SRC } from '@/lib/site';
 
 export const NAV_LINKS = [
-    { href: '/work',   label: 'All Work' },
+    { href: '/content', label: 'All Content' },
     { href: '/photos', label: 'Photos' },
     { href: '/videos', label: 'Videos' },
     { href: '/book',   label: 'Book' },

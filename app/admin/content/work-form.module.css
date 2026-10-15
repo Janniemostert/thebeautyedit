@@ -313,3 +313,28 @@
 .dangerBtn:hover {
     background: rgba(248, 113, 113, 0.1);
 }
+
+/* Before / after uploads side by side */
+.pair {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+}
+
+@media (min-width: 640px) {
+    .pair {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.pair .previewImg {
+    max-width: 220px;
+    aspect-ratio: auto;
+}
+
+.pairHint {
+    grid-column: 1 / -1;
+}

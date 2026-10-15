@@ -1,0 +1,45 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.2rem;
+}
+
+.hidden {
+    opacity: 0.6;
+}
+
+.info {
+    flex: 1 1 260px;
+    min-width: 0;
+}
+
+.name {
+    font-size: 1.05rem;
+    margin: 0 0 0.2rem;
+}
+
+.meta {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.desc {
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin: 0.4rem 0 0;
+}

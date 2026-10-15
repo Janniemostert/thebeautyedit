@@ -8,7 +8,7 @@ import mongoose from 'mongoose';
 import WorkForm from '../../WorkForm';
 import classes from '../../work-form.module.css';
 
-export const metadata = { title: 'Edit Work' };
+export const metadata = { title: 'Edit Content' };
 
 export default async function EditWorkPage({ params }) {
     const session = await getServerSession(authOptions);
@@ -22,7 +22,7 @@ export default async function EditWorkPage({ params }) {
 
     return (
         <main className={classes.main}>
-            <h1>Edit Work</h1>
+            <h1>Edit Content</h1>
             <WorkForm work={serializeWork(doc)} />
         </main>
     );

@@ -30,8 +30,8 @@ export default async function AdminLayout({ children }) {
                 <Link href="/admin">
                     Users{pendingUsers > 0 && <span className={classes.count}>{pendingUsers}</span>}
                 </Link>
-                <Link href="/admin/work">Work</Link>
-                <Link href="/admin/work/new" className={classes.primary}>+ New Work</Link>
+                <Link href="/admin/content">Content</Link>
+                <Link href="/admin/content/new" className={classes.primary}>+ New Content</Link>
                 <Link href="/" className={classes.secondary}>← View site</Link>
             </nav>
             <div className={classes.content}>{children}</div>

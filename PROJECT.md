@@ -40,7 +40,7 @@ Dark creator theme. All colours live as CSS variables in `app/globals.css`:
 | `--accent-2`   | `#ec4899` | Pink accent             |
 | `--gradient`   | violet → pink | Buttons, logo mark  |
 
-Fonts: **Space Grotesk** (headings) + **Inter** (body), from Google Fonts.
+Fonts: **Playfair Display** (headings, weight 800, standing in for the Neom lettering in the logo) + **Play** (body), self-hosted via `next/font`.
 Branding, tagline, contact email and social links are in `lib/site.js`.
 
 ---
@@ -72,15 +72,18 @@ The local `.env.local` was copied from Olive Foodie with the database name chang
 
 ---
 
-## Content Model: Work
+## Content Model ("Content", stored as Work)
 
-Stored in the `works` collection (`lib/models/Work.js`):
+Shown to users and admins as **Content** (`/content`, `/admin/content`; old `/work` URLs redirect). In code and the database it is still `Work`, stored in the `works` collection (`lib/models/Work.js`):
 
 | Field              | Notes                                                        |
 | ------------------ | ------------------------------------------------------------ |
 | `title`, `slug`    | Slug is generated from the title and must be unique          |
 | `type`             | `photo` or `video`                                           |
-| `coverImage`       | Cloudinary URL. Falls back to first gallery image            |
+| `format`           | `standard` (simple post) or `beforeAfter`                    |
+| `beforeImage`, `afterImage` | Photo before & after: shown with a drag slider. Use the same framing and size |
+| `beforeVideo`, `afterVideo` | Video before & after: two players side by side (Cloudinary uploads) |
+| `coverImage`       | Cloudinary URL. Falls back to the after image, then the first gallery image |
 | `images[]`         | Gallery images (Cloudinary URLs)                             |
 | `videoFile`        | Cloudinary video URL, uploaded straight from the browser (signed upload, folder `beauty-edit/video`), played in a native player |
 | `videoLink`        | YouTube / Vimeo are embedded. WhatsApp / Instagram / TikTok links show as a "Watch on …" button. A video piece needs a file or a link |
@@ -100,7 +103,8 @@ Stored in the `works` collection (`lib/models/Work.js`):
 - Signing in with Google creates a `pending` user. Admins approve users at `/admin` (tiers are kept from the original project).
 - `active` users and admins can comment and see members-only work.
 - Admin role is given at sign-in to anyone whose email is in `ADMIN_EMAILS`, including existing users (they are promoted on their next sign-in).
-- Admin pages: `/admin` (users), `/admin/work` (list, publish/draft and featured toggles), `/admin/work/new`, `/admin/work/[id]/edit`.
+- Admin pages: `/admin` (users, approve / suspend / delete), `/admin/content` (list, publish/draft and featured toggles), `/admin/content/new`, `/admin/content/[id]/edit`.
+- Deleting a user cancels their upcoming bookings; past bookings and comments stay (comments show "Former member").
 
 ---
 
@@ -151,7 +155,7 @@ app/
   book/                     # Public booking flow
   bookings/                 # Client's own bookings
   auth/register/            # Email + password sign-up
-  work/                     # All work listing + /work/[slug] detail
+  content/                  # All content listing + /content/[slug] detail
   photos/, videos/          # Filtered listings
   admin/                    # Bookings, schedule, services, users, work (role-protected)
   auth/signin/              # Google sign-in page

@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 import WorkForm from '../WorkForm';
 import classes from '../work-form.module.css';
 
-export const metadata = { title: 'New Work' };
+export const metadata = { title: 'New Content' };
 
 export default async function NewWorkPage() {
     const session = await getServerSession(authOptions);
@@ -12,7 +12,7 @@ export default async function NewWorkPage() {
 
     return (
         <main className={classes.main}>
-            <h1>New Work</h1>
+            <h1>New Content</h1>
             <WorkForm />
         </main>
     );

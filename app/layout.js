@@ -1,5 +1,5 @@
 import './globals.css';
-import { Inter, Space_Grotesk } from 'next/font/google';
+import { Play, Playfair_Display } from 'next/font/google';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import Providers from './components/Providers';
@@ -7,16 +7,17 @@ import PwaRegister from './components/pwa-register';
 import { site } from '@/lib/site';
 
 // Self-hosted fonts: no render-blocking Google Fonts request, no layout shift.
-const inter = Inter({
+// Play only comes in 400 and 700; browsers round other weights to the nearest one.
+const play = Play({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['400', '700'],
   variable: '--font-body',
   display: 'swap',
 });
 
-const spaceGrotesk = Space_Grotesk({
+// Variable font (400–900), standing in for the Neom lettering used in the logo.
+const playfair = Playfair_Display({
   subsets: ['latin'],
-  weight: ['500', '600', '700'],
   variable: '--font-heading',
   display: 'swap',
 });
@@ -50,7 +51,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${play.variable} ${playfair.variable}`}>
       <head>
         <link rel="preconnect" href="https://res.cloudinary.com" />
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
